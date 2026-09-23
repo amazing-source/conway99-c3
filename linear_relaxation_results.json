@@ -1,0 +1,134 @@
+{
+ "m04776_s0000": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m04776_s0001": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m04776_s0002": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m04776_s0003": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m04905_s0004": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m04905_s0005": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m04905_s0006": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m04907_s0007": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m05033_s0008": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m05033_s0009": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m05033_s0010": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m05033_s0011": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m05033_s0012": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m06717_s0013": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m06717_s0014": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m12295_s0015": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m15426_s0016": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m15426_s0017": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNKNOWN"
+ },
+ "m16927_s0018": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m16927_s0019": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m16927_s0020": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m16927_s0021": {
+  "LQ": "OPTIMAL",
+  "stageQ": "not run"
+ },
+ "m16927_s0022": {
+  "LQ": "OPTIMAL",
+  "stageQ": "not run"
+ },
+ "m16927_s0023": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m20723_s0024": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m21041_s0025": {
+  "LQ": "OPTIMAL",
+  "stageQ": "not run"
+ },
+ "m21045_s0026": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m23221_s0027": {
+  "LQ": "OPTIMAL",
+  "stageQ": "not run"
+ },
+ "m23431_s0028": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ },
+ "m26850_s0029": {
+  "LQ": "OPTIMAL",
+  "stageQ": "not run"
+ },
+ "m29481_s0030": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m29481_s0031": {
+  "LQ": "INFEASIBLE",
+  "stageQ": "UNSAT"
+ },
+ "m29481_s0032": {
+  "LQ": "OPTIMAL",
+  "stageQ": "UNKNOWN"
+ }
+}

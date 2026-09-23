@@ -1,0 +1,10 @@
+# Docker images used for the runs of 2026-09-22/23 (image ID = sha256 of the image config; identical ID => identical image)
+c99audit sha256:53db7f3a1238524abedeac919c9ee592240b9319a7b25df4ac2e09e3cfa1ab49 created=2026-09-22T17:55:07.609830718Z
+proofbox sha256:997f119ba7e1d2bc1604c4c81da6d20531c52c7eae240f685c17f5efe61d5571 created=2026-09-22T20:37:07.125112966Z
+texbox sha256:97727545c4625183fd45abf0dc237f8915b2119e04cac5e06649d74cba962313 created=2026-09-22T09:59:26.130601863Z
+proofbox:portable sha256:6694d6f632f424dfc69ef3668a6aa6874de7de1ee124e23050ba1bc146c73f4c created=2026-09-23T06:43:50.734151528Z
+# base image digests
+[ghcr.io/astral-sh/uv@sha256:c6fad5e08092142ea53fc03cbebb6304c5d06a25dd53ab450114f6c5f03376a7]
+
+
+c3box sha256:cba989d1a05d0c10d322bef2f199f5bf0553efcbced029651007de91b93994ae created=2026-09-23T08:02:35.40348663Z  (docker/Dockerfile.c3box, context docker/proofbox; CNF m16420_sL0 identique : a706468daf92ee33)

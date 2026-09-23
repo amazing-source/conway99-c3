@@ -1,0 +1,9 @@
+# Certification DRAT des problemes de l'etage quotient (CaDiCaL 3.0.1 natif + drat-trim), 22/09/2026, 1 coeur, <3 Go
+m16927_s0023 cadical=UNSAT solve=336s drat_trim=VERIFIED check=210s sha256(cnf)=840c005097ca6ad6 (pilote; verdict relu apres correction de la lecture CR)
+m29481_s0030 cadical=UNSAT solve=260s drat_trim=VERIFIED check=114s sha256(cnf)=3b82d7c62626ee1d
+m29481_s0031 cadical=UNSAT solve=293s drat_trim=VERIFIED check=121s sha256(cnf)=1d8526ebc2b76259
+m05033_s0009 cadical=UNSAT solve=60s drat_trim=VERIFIED check=47s sha256(cnf)=7f16e80a8715f2d9
+m05033_s0010 cadical=UNSAT solve=44s drat_trim=VERIFIED check=38s sha256(cnf)=346414cb91ce1a4e
+m05033_s0011 cadical=UNSAT solve=37s drat_trim=VERIFIED check=38s sha256(cnf)=f6aa884745448d03
+m06717_s0013 cadical=UNSAT solve=37s drat_trim=VERIFIED check=36s sha256(cnf)=f25f8293e3f1ccf7
+m16927_s0018 cadical=UNSAT solve=353s drat_trim=VERIFIED check=210s sha256(cnf)=9b55da3be28d8243

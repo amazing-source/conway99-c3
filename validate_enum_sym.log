@@ -1,0 +1,7 @@
+mask    28 |Aut F|= 12: old complete=True 1 multisets in 1 orbits | new complete=True 1 canonical, distinct orbits 1 -> ok
+mask 16420 |Aut F|= 48: old complete=True 4 multisets in 2 orbits | new complete=True 2 canonical, distinct orbits 2 -> ok
+mask  8290 |Aut F|=  2: old complete=True 2 multisets in 2 orbits | new complete=True 2 canonical, distinct orbits 2 -> ok
+mask  9313 |Aut F|=  2: old complete=True 2 multisets in 2 orbits | new complete=True 2 canonical, distinct orbits 2 -> ok
+mask 13452 |Aut F|=  2: old complete=True 1 multisets in 1 orbits | new complete=True 1 canonical, distinct orbits 1 -> ok
+mask 29448 |Aut F|=  6: old complete=True 1 multisets in 1 orbits | new complete=True 1 canonical, distinct orbits 1 -> ok
+ENUM_SYM VALIDATION: PASS

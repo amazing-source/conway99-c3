@@ -1,0 +1,34 @@
+motifs: 26 phase classes (gauge-reduced): 318 workers: 10
+  done 50/318  t=3s
+  done 100/318  t=3s
+  done 150/318  t=3s
+  done 200/318  t=3s
+  done 250/318  t=4s
+  done 300/318  t=4s
+overall: {'R_negative': 191, 'witness': 125, 'ip_infeasible_uncertified': 2}
+  mask     0: {'witness': 1}
+  mask    28: {'witness': 1}
+  mask  4776: {'witness': 3}
+  mask  4905: {'witness': 3}
+  mask  4907: {'R_negative': 6, 'witness': 3}
+  mask  5033: {'witness': 3, 'R_negative': 6}
+  mask  6717: {'R_negative': 19, 'witness': 8}
+  mask  8290: {'witness': 1}
+  mask  9313: {'witness': 1}
+  mask 12295: {'witness': 1}
+  mask 13452: {'R_negative': 2, 'witness': 1}
+  mask 15426: {'witness': 3}
+  mask 16384: {'witness': 1}
+  mask 16388: {'witness': 1}
+  mask 16420: {'witness': 1}
+  mask 16927: {'R_negative': 8, 'witness': 1}
+  mask 20723: {'R_negative': 24, 'witness': 3}
+  mask 21041: {'ip_infeasible_uncertified': 2, 'witness': 1}
+  mask 21045: {'witness': 9}
+  mask 23221: {'R_negative': 31, 'witness': 50}
+  mask 23431: {'R_negative': 72, 'witness': 9}
+  mask 26850: {'R_negative': 1, 'witness': 8}
+  mask 26896: {'witness': 1}
+  mask 29448: {'witness': 1, 'R_negative': 2}
+  mask 29481: {'witness': 9, 'R_negative': 18}
+  mask 30992: {'witness': 1, 'R_negative': 2}

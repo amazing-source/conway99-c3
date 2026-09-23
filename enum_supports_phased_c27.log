@@ -1,0 +1,5 @@
+class 27 (mask 16420): multiset #1 found (44s)
+class 27 (mask 16420): multiset #2 found (56s)
+class 27 (mask 16420): multiset #3 found (208s)
+class 27 (mask 16420): multiset #4 found (232s)
+class 27 (mask 16420): END status=INFEASIBLE, LQ+phase multisets: 4, complete=True, 237s

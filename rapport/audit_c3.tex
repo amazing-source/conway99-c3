@@ -1,0 +1,377 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.1cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\setlength{\parskip}{3pt}
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{corollary}[theorem]{Corollaire}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remarque}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\srg}{\operatorname{srg}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rg}{\operatorname{rang}}
+\newcommand{\st}[1]{\textbf{[#1]}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{Le graphe de Conway $\srg(99,14,1,2)$, branche C3\\
+\large Audit complet des travaux du 22 septembre 2026 : ce qui est démontré, certifié, calculé, et ce qu'il reste à faire}
+\author{Travail et audit : Claude (Opus 5.5), pour D.~Djematene\\
+\small Dossier de travail : \code{Desktop/c3\_recherche\_annexe} (hors de tout dépôt git)}
+\date{22 septembre 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On étudie l'hypothèse qu'un graphe fortement régulier $\Gamma=\srg(99,14,1,2)$ admette un automorphisme $g$ d'ordre $3$.
+La littérature impose que $g$ soit sans point fixe. Ce document rassemble, avec leur statut exact, tous les résultats obtenus le 22 septembre 2026 :
+(i) $g$ a exactement six orbites triangulaires (conséquence d'une identité d'Ishida, argument refait) ;
+(ii) le graphe $F$ des adjacences entre ces six orbites est l'un de \textbf{26} graphes (classification certifiée par certificats exacts) ;
+(iii) au niveau des appariements (« phases »), il reste \textbf{46} classes à symétrie près (certifié) ;
+(iv) pour 35 de ces classes, le problème restant se ramène à une liste finie et explicite de problèmes « quotient », 33 au total (énumération par solveur, non certifiée) ;
+(v) 8 de ces 33 problèmes sont insatisfiables, et \textbf{les 8 sont certifiés} : preuve DRAT produite par un second solveur (CaDiCaL 3.0.1)
+et vérifiée par \code{drat-trim}.
+\textbf{Aucune classe n'est encore entièrement exclue ; la branche C3 n'est pas tranchée.}
+Le document distingue systématiquement preuve, certificat, calcul et résultat négatif, liste les erreurs commises et corrigées en cours de route,
+et chiffre ce qu'il faudrait pour aller au bout.
+\end{abstract}
+
+\tableofcontents
+
+\section*{Échelle de statut}
+\begin{description}[nosep]
+\item[\st{D}] \emph{Démontré} : preuve écrite dans ce document, relue ; à revérifier par un humain.
+\item[\st{L}] \emph{Littérature} : repris d'une source primaire lue (référence donnée).
+\item[\st{C}] \emph{Certifié} : le résultat d'un calcul est accompagné d'un certificat exact (témoin, vecteur de Farkas, preuve DRAT) vérifié par un programme
+indépendant du solveur qui l'a produit.
+\item[\st{S}] \emph{Calcul par solveur, non certifié} : réponse d'un solveur (CP-SAT, CaDiCaL) sans certificat vérifié.
+\item[\st{N}] \emph{Résultat négatif} : une piste testée qui n'élimine rien.
+\item[\st{?}] \emph{Ouvert / à faire}.
+\end{description}
+
+%==================================================================
+\section{Résumé pour le lecteur pressé}
+\begin{enumerate}[nosep]
+\item \st{L}+\st{D} Un automorphisme d'ordre 3 de $\Gamma$ est sans point fixe et possède \textbf{exactement 6 orbites triangulaires} et 27 orbites indépendantes
+(§\ref{sec:tau}). Conséquence annexe : l'exclusion calculée « $f=27$ » du dépôt \code{infinityscroll/conway99-order3-f27} (août 2026) est redondante.
+\item \st{C} Le graphe $F$ entre les 6 orbites triangulaires est l'un de 26 graphes sur 156 (§\ref{sec:motifs}).
+\item \st{C} Avec les appariements, il reste 125 classes de phases, soit 46 à symétrie près ; on retrouve au passage le « lemme de l'hexagone » (§\ref{sec:phases}).
+\item \st{D} Deux lemmes nouveaux au niveau des sommets restreignent les incidences possibles vers les orbites indépendantes (§\ref{sec:l25}).
+\item \st{S} Énumération des incidences possibles : complète pour 35 classes sur 46 (1 à 6 « multi-ensembles de supports » par classe, 33 problèmes distincts), incomplète pour 11 (§\ref{sec:enum}).
+\item \st{C} Étage quotient (§\ref{sec:stageq}) : sur 33 problèmes, 8 insatisfiables, \textbf{tous certifiés par preuve DRAT vérifiée}
+(cf.\ tableau~\ref{sec:tabC}),
+20 indécis après 5 minutes, 5 non terminés (arrêtés faute de mémoire). \textbf{Aucune classe n'est encore exclue en entier.}
+\item \st{N} Plusieurs pistes n'éliminent rien : règle par colonne, filtres locaux au niveau des classes, condition spectrale sur $C$, solveur sur le modèle complet (§\ref{sec:neg}).
+\item Tous les modèles ont été validés sur des graphes réels ($\srg(243,22,1,2)$ de Berlekamp--van Lint--Seidel, graphe de la tour $3\times3$) avant usage ;
+six erreurs de programme et deux problèmes de ressources ont été détectés et corrigés avant de produire un résultat faux, et l'audit a corrigé deux
+affirmations inexactes de comptes rendus intermédiaires (§\ref{sec:incidents}).
+\end{enumerate}
+
+%==================================================================
+\section{Cadre, notations, faits de base}\label{sec:cadre}
+Soit $\Gamma$ un $\srg(99,14,1,2)$ hypothétique, $A$ sa matrice d'adjacence : $A^2+A=12I+2J$, spectre $\{14^1,3^{54},(-4)^{44}\}$.
+Soit $g\in\Aut(\Gamma)$ d'ordre 3.
+
+\paragraph{Absence de point fixe \st{L}.} Makhnev--Minakova (Diskr.\ Mat.\ 16:1, 2004, th.~1) : $\Fix(g)$ est vide ou un triangle.
+Behbahani (thèse 2009, th.~4.14) / Behbahani--Lam (2011) : pas de matrice d'orbites pour $p=3$ avec points fixes. Donc $\Fix(g)=\emptyset$ :
+33 orbites de taille 3. On note les sommets $(U,a)$, $a\in\Z/3$, avec $g(U,a)=(U,a+1)$.
+Une orbite est \emph{triangulaire} si elle induit $K_3$, \emph{indépendante} sinon ($g$ agit transitivement sur les trois paires d'une orbite).
+On note $\tau$ le nombre d'orbites triangulaires.
+
+\paragraph{Quotient.} $Q_{UV}=|N(u)\cap V|$ pour $u\in U$. Toutes les orbites ont la même taille, donc $Q$ est symétrique, $Q\mathbf 1=14\cdot\mathbf 1$ et
+\[Q^2+Q=12I+6J .\]
+
+\begin{lemma}[entrées du quotient] \st{D}\label{lem:entries}
+(a) Si $U$ est triangulaire et $V\neq U$, alors $Q_{UV}\le 1$ ; les arêtes entre $U$ et $V$ forment alors un appariement $g$-équivariant.
+(b) Si $U,V$ sont indépendantes, $Q_{UV}\le 2$.
+(c) Toute orbite indépendante $U$ a exactement deux orbites $V$ avec $Q_{UV}=2$ (les « doubles » forment un 2-facteur sur les orbites indépendantes).
+\end{lemma}
+\begin{proof}
+(a) Si $Q_{UV}\ge2$, par symétrie un sommet $v\in V$ a deux voisins $u,u'$ dans le triangle $U=\{u,u',u''\}$ ; l'arête $uu'$ aurait deux voisins communs
+$u''$ et $v$, contre $\lambda=1$.
+(b) Si $u\in U$ était adjacent aux trois sommets de $V$, les sommets non adjacents $u$ et $gu$ auraient trois voisins communs, contre $\mu=2$.
+(c) $u$ et $gu$ ne sont pas adjacents, donc ont exactement deux voisins communs. Dans une orbite $W$ avec $Q_{UW}=1$ ($u\sim w$, $gu\sim gw$) : aucun.
+Dans une orbite triangulaire : aucun, par (a). Dans $W$ avec $Q_{UW}=2$ ($u\sim w,g^\delta w$, $gu\sim gw,g^{\delta+1}w$, $\delta\in\{1,2\}$) :
+exactement un. D'où exactement deux orbites doubles.
+\end{proof}
+
+On ordonne les orbites : les $\tau$ triangulaires d'abord. Alors
+\[Q=\begin{pmatrix}2I+F & B\\ B^{\mathsf T}& C\end{pmatrix},\qquad F\in\{0,1\}^{\tau\times\tau},\ B\in\{0,1\}^{\tau\times(33-\tau)},\ C\in\{0,1,2\}^{\text{indép.}}.\]
+
+\paragraph{Reformulation exacte (anneau de groupe).} $A$ est une matrice $33\times33$ à coefficients dans $\Z[C_3]=\Z[x]/(x^3-1)$ ; comme
+$\Z[C_3]\hookrightarrow\Z\times\Z[\omega]$, l'équation $A^2+A=12I+2J$ équivaut à deux équations : en $x=1$ l'équation du quotient ci-dessus, et en $x=\omega$
+une matrice hermitienne $M$ à coefficients d'Eisenstein (entrées $0$, $\omega^k$ pour $Q=1$, $-\omega^k$ pour $Q=2$, diagonale $-1$ ou $0$) avec
+$M^2+M=12I$, spectre $\{3^{18},(-4)^{15}\}$ (analogue de la matrice signée $S$ de la branche involution). Cette décomposition guide les « étages » ci-dessous.
+
+%==================================================================
+\section{Résultat 1 : exactement six orbites triangulaires}\label{sec:tau}
+\begin{proposition} \st{L}+\st{D}
+$\tau=6$ : $g$ a six orbites triangulaires et 27 orbites indépendantes.
+\end{proposition}
+\begin{proof}
+Soit $E_3=\frac{4I+A}{7}-\frac{2J}{77}$ le projecteur sur l'espace propre de valeur 3 (entrées : $\tfrac{42}{77}$ diagonale, $\tfrac{9}{77}$ adjacents, $-\tfrac{2}{77}$
+non adjacents). Le caractère vaut
+$\chi_3(g)=\tr(gE_3)=\sum_v E_3[v,gv]=3\tau\cdot\tfrac{9}{77}-(99-3\tau)\tfrac{2}{77}=\tfrac{3(\tau-6)}{7}$ (les $3\tau$ sommets des orbites triangulaires sont
+adjacents à leur image, les autres non). L'intégralité seule donne $\tau\equiv6\pmod 7$, soit $\tau\in\{6,13,20,27\}$.
+Ishida (arXiv:2606.29183v2, prop.~4.4 et 8.7) : si $E$ est un idempotent spectral à entrées $p$-entières et $x$ d'ordre $p$, alors
+$\tr(xE)=\rg_{\F_p}\bigl(E[\Fix(x)]\bmod p\bigr)$. Ici $p=3$ ; $E_3$ est $3$-entier (dénominateurs $7$ et $77$) ; $\Fix(g)=\emptyset$, donc le rang est nul,
+$\chi_3(g)=0$ et $\tau=6$.
+Nous avons relu l'argument d'Ishida : l'image de $E$ est un facteur direct du réseau de permutation $\Z_3^{V}$, donc (théorème de Green + Krull--Schmidt sur
+$\Z_3$) une somme de réseaux $\Z_3[G/H]$ ; la trace de $x$ compte les facteurs triviaux, que le quotient de Brauer, égal à $E[\Fix(x)]\bmod 3$, compte aussi.
+Contrôle de cohérence (calcul à la main) sur un vrai graphe : $\srg(243,22,1,2)$ avec l'involution $x\mapsto-x$ ($p=2$, un point fixe) : trace et rang valent $0$.
+\end{proof}
+\begin{remark}
+Le résultat est dû à Ishida (juillet 2026). Il rend redondante l'exclusion calculée du cas « $f=27$ » par \code{infinityscroll/conway99-order3-f27}
+(14 août 2026), dont le README présente encore $f=6,13,20$ comme ouverts. Il lève aussi la réserve du dossier de départ (ChatGPT), qui traitait
+« six orbites triangulaires » comme une hypothèse de travail.
+\end{remark}
+
+%==================================================================
+\section{Résultat 2 : le Gram des six triangles}\label{sec:gram}
+\begin{lemma} \st{D}
+$G_0:=BB^{\mathsf T}=6I+6J-5F-F^2$. En particulier la somme de la ligne $i$ de $B$ vaut $12-\deg_F(i)$, $G_0\ge0$ entrée par entrée et $G_0\succeq0$.
+\end{lemma}
+\begin{proof}
+Bloc triangulaire de $Q^2+Q=12I+6J$ : $(2I+F)^2+(2I+F)+BB^{\mathsf T}=12I+6J$.
+\end{proof}
+Si $s\in\{0,1\}^6$ désigne le support d'une colonne de $B$ (les triangles adjacents à une orbite indépendante) et $m_s$ le nombre de colonnes égales à $s$ :
+\begin{equation}\label{eq:agg}
+\textstyle\sum_s m_s=27,\qquad \sum_s m_s\,ss^{\mathsf T}=G_0,\qquad m_s\in\Z_{\ge0}.
+\end{equation}
+
+%==================================================================
+\section{Résultat 3 : 26 graphes $F$ possibles sur 156}\label{sec:motifs}
+\begin{theorem} \st{C}
+Parmi les 156 graphes à 6 sommets (à isomorphisme près), seuls 26 admettent une solution de~\eqref{eq:agg}. Les 130 autres sont exclus :
+87 car $G_0$ a une entrée négative, 25 car un mineur principal de $G_0$ est négatif, 18 par un \emph{certificat de Farkas entier}
+$y$ : $y\cdot a(s)\ge0$ pour les 64 colonnes $s$ ($a(s)=(1,(s_is_j)_{i\le j})$) et $y\cdot b<0$ ($b=(27,(G_{0,ij})_{i\le j})$), ce qui interdit toute solution
+$m\ge0$ \emph{même fractionnaire}.
+\end{theorem}
+\textbf{Vérification.} Les certificats ont été cherchés avec CP-SAT puis vérifiés en arithmétique entière. Un second vérificateur, écrit indépendamment
+(\code{audit\_verify.py}), repart de l'atlas des graphes de \code{networkx}, recalcule $G_0$, les mineurs (rationnels exacts), revérifie les 26 témoins et les
+18 vecteurs de Farkas, sans utiliser aucune donnée du dossier ChatGPT : \code{A1: 87/25/44 ; A2: 26 témoins, 18 Farkas}. Le tableau~A donne les 44 graphes à
+Gram positif. Les 18 exclusions par Farkas étaient auparavant des « infaisabilités MILP non certifiées » (note ChatGPT, §7).
+
+%==================================================================
+\section{Résultat 4 : phases, 125 classes, 46 à symétrie près}\label{sec:phases}
+\paragraph{Modèle \st{D}.} Sur une arête $ij$ de $F$, l'appariement s'écrit $(i,a)\sim(j,a+\varepsilon_{ij})$. Soit $P$ la matrice $18\times18$ induite sur les
+sommets des triangles. Si $Y$ est la matrice $18\times81$ des adjacences vers les sommets indépendants,
+\[YY^{\mathsf T}=R:=12I+2J-P^2-P .\]
+Une orbite indépendante de support $s$ et de phases $p$ (sommet $(Z,b)\sim(i,b+p_i)$) contribue exactement $1$ à $R[(i,0),(j,p_j-p_i)]$.
+D'où un problème linéaire en entiers exact (« niveau 2 ») sur les 1366 colonnes phasées. Changer l'étiquetage d'un triangle ($g_i\in\Z/3$) change
+$\varepsilon_{ij}$ en $\varepsilon_{ij}+g_j-g_i$ : les classes utiles sont celles de l'espace des cycles, $3^{\beta_1(F)}$ par graphe.
+
+\begin{theorem} \st{C}
+Pour les 26 graphes, il y a 318 classes de phases. Pour 191, $R$ a une entrée négative (certificat : l'entrée). Pour 2, la décomposition est impossible :
+ce sont exactement le $C_6$ d'holonomie $1$ et $2$ (lemme de l'hexagone, démontré dans le dossier de départ et revérifié). Les 125 autres admettent une
+décomposition exacte (témoin vérifié). Modulo $\Aut(F)\times$ jauge $\times$ conjugaison ($g\mapsto g^{-1}$, soit $\varepsilon\mapsto-\varepsilon$), il reste
+\textbf{46 classes} (tableau~B).
+\end{theorem}
+\textbf{Vérification.} Recalcul indépendant (\code{audit\_verify.py}, partie B) : 318 / 191 / 125 témoins exacts / 2 cas $C_6$ d'holonomie $2$ et $1$ ;
+partie C : 125 classes $\to$ 46 orbites, avec une autre forme canonique. Le fait que notre modèle retrouve exactement le lemme de l'hexagone est une
+validation croisée du modèle par un résultat démontré.
+
+%==================================================================
+\section{Résultat 5 : deux lemmes au niveau des sommets}\label{sec:l25}
+\begin{lemma}[filtre par type] \st{D}\label{lem:type}
+Soit $Z$ une orbite indépendante de support $s$ et phases $p$. Pour tout triangle $i$ et tout $b\in\Z/3$, en notant $e_{ij}$ la phase de l'arête $ij$ orientée
+de $i$ vers $j$ :
+$\#\{j\in N_F(i)\cap s : b+p_j\equiv e_{ij}\}\le 1$ si $i\in s$, et $\le2$ si $i\notin s$.
+\end{lemma}
+\begin{proof}
+Voisins communs de $u=(i,0)$ et $v=(Z,b)$ parmi les sommets des triangles. Dans $T_j$ ($j\in N_F(i)$) : le voisin de $u$ est $(j,e_{ij})$, celui de $v$ est
+$(j,b+p_j)$ si $j\in s$. Dans $T_i$ : si $i\in s$ et $b+p_i\equiv0$, $u\sim v$ et $T_i$ n'apporte rien ; si $i\in s$ et $b+p_i\not\equiv0$, $u\not\sim v$
+et $T_i$ apporte un voisin commun ; si $i\notin s$, $u\not\sim v$ et rien. On conclut avec $\lambda=1$, $\mu=2$.
+\end{proof}
+\begin{lemma}[triplets] \st{D}\label{lem:triple}
+Pour tout triplet de triangles $\{i,j,l\}$ et tout couple de phases relatives $r\in(\Z/3)^2$, au plus \emph{une} orbite indépendante (comptée avec
+multiplicité) contient $\{i,j,l\}$ avec les phases relatives $(p_j-p_i,p_l-p_i)=r$.
+\end{lemma}
+\begin{proof}
+Si deux orbites $Y\neq Z$ le faisaient, $p^Y-p^Z$ serait constant ($=c$) sur le triplet ; les sommets $(Y,0)$ et $(Z,c)$ auraient alors au moins trois voisins
+communs dans les triangles, contre $\lambda,\mu\le2$.
+\end{proof}
+\textbf{Effet.} Ces lemmes n'éliminent aucune des 125 classes \st{N}, mais ils réduisent fortement l'ensemble des incidences $B$ possibles, et
+\textbf{les exclusions de l'étage quotient en dépendent}. Contrôle d'audit : sans ces filtres, l'énumération (niveau 2 seul) donne des sur-ensembles
+(classes 0, 2, 3, 11, 18, 19, 26, 34, 35 : 6/6, 9/5, 5/3, 6/2, 4/2, 8/2, 10/3, 10/3, 6/3 supports), sans jamais perdre un support filtré.
+Ces lemmes n'ont pas pu être testés sur un graphe réel (aucun graphe connu n'a la structure « 6 triangles ») : \textbf{leur relecture humaine est prioritaire}.
+Alternative robuste : passer aussi les supports supplémentaires dans l'étage quotient.
+
+%==================================================================
+\section{Résultat 6 : énumération des incidences $B$}\label{sec:enum}
+\st{S} Pour chacune des 46 classes, CP-SAT énumère toutes les solutions du niveau 2.5 (niveau 2 + lemmes~\ref{lem:type} et~\ref{lem:triple}), puis on garde
+les \emph{multi-ensembles de supports} (seule donnée utile à l'étage quotient). Limite de 120\,s par classe. Résultat (tableau~B) :
+\textbf{35 classes complètement énumérées}, 1 à 6 multi-ensembles de supports chacune, soit \textbf{33 problèmes distincts} (les classes d'un même graphe
+partagent leurs supports) ; \textbf{11 classes incomplètes} (graphes $F$ peu denses, masques 0, 28, 8290, 9313, 13452, 16384, 16388, 16420, 26896, 29448,
+30992 : 1\,163 supports trouvés avant la limite, jusqu'à 560 pour une seule classe).
+\emph{Correction d'audit} : des comptes rendus intermédiaires annonçaient « 33 classes complètes, 13 incomplètes » ; 33 est le nombre de problèmes distincts,
+les classes complètes sont 35. Aucun calcul n'en dépendait (le balayage sélectionne les classes par leur drapeau « complet »).
+Statut : la complétude est une affirmation de CP-SAT, non certifiée ; elle a été recoupée, pour 9 classes, par une énumération indépendante sans les filtres.
+
+%==================================================================
+\section{Résultat 7 : l'étage quotient}\label{sec:stageq}
+\paragraph{Problème.} Pour un graphe $F$ et un multi-ensemble de supports (colonnes de $B$ affectées aux orbites 6--32), existe-t-il
+$C\in\{0,1,2\}^{27\times27}$ symétrique, diagonale nulle, avec exactement deux entrées $2$ par ligne et $Q^2+Q=12I+6J$, $Q\mathbf 1=14\cdot\mathbf1$ ?
+C'est une relaxation exacte (conséquence nécessaire) ; si c'est impossible pour \emph{tous} les supports d'une classe, la classe est exclue.
+
+\paragraph{Encodage et validation.} Entrées $C_{UV}=u_{UV}+w_{UV}$ ($w\Rightarrow u$), produits par portes ET (Tseitin), sommes par cardinalités (totalizer de
+PySAT), littéraux répétés remplacés par des copies équivalentes. Validation \emph{avant} usage : (1) le vrai quotient de $\srg(243,22,1,2)$ sous une
+translation d'ordre 3 (81 orbites triangulaires, puis 81 indépendantes) satisfait toutes les contraintes générées, et une modification est détectée
+(43 violations) ; (2) le chemin CNF complet sur le graphe de la tour $3\times3$ : SAT avec vérification numérique pour $k=4$, UNSAT pour $k=5$.
+
+\begin{lemma}[cassage de symétrie des colonnes jumelles] \st{D}\label{lem:lex}
+Deux orbites indépendantes de même support sont interchangeables. Si une solution existe, il en existe une où, pour tous jumeaux $i<j$,
+la ligne $i$ de $Q$ est lexicographiquement $\le$ la ligne $j$, en comparant les colonnes $W\notin\{i,j\}$ dans l'ordre croissant.
+\end{lemma}
+\begin{proof}
+Soit $A$ la solution minimale pour l'ordre lexicographique « ligne par ligne » dans son orbite sous le groupe $G$ des permutations de jumeaux
+(orbite finie, formée de solutions). Supposons $A[i]\succ A[j]$ (colonnes hors $\{i,j\}$) et soit $k$ la première colonne où elles diffèrent :
+$A_{ik}>A_{jk}$ ; $k$ est une orbite indépendante (les colonnes des triangles sont égales pour des jumeaux). Soit $B=\tau A\tau$, $\tau=(i\,j)\in G$.
+Si $k<i$ : les lignes $p<k$ sont inchangées (car $A_{pi}=A_{ip}=A_{jp}=A_{pj}$ pour $p<k$) et, ligne $k$, la première colonne modifiée est $i$ où
+$B_{ki}=A_{jk}<A_{ik}=A_{ki}$ : $B\prec A$. Si $k>i$ : les lignes $p<i$ sont inchangées, et la ligne $i$ de $B$ coïncide avec celle de $A$ avant la colonne $k$
+(diagonales nulles, $B_{ij}=A_{ij}$) puis $B_{ik}=A_{jk}<A_{ik}$ : $B\prec A$. Contradiction dans les deux cas.
+Nous n'imposons la contrainte qu'entre jumeaux consécutifs, ce qui est plus faible.
+\end{proof}
+C'est l'adaptation à notre cadre (sous-groupe, entrées $\{0,1,2\}$, parties fixées) du cassage de Codish, Miller, Prosser et Stuckey (IJCAI 2013).
+
+\paragraph{Résultats.} \st{S}/\st{C} Tableau~C : 8 problèmes UNSAT d'après CaDiCaL (pysat, 16 à 100\,s), 20 indécis après 5\,min, 5 non terminés
+(processus tués faute de mémoire sur le PC portable). Pour obtenir des \emph{certificats}, chaque UNSAT est rejoué avec CaDiCaL 3.0.1 natif (second solveur),
+qui écrit une preuve DRAT, vérifiée par \code{drat-trim} ; la CNF exacte est identifiée par son empreinte SHA-256.
+\textbf{Les 8 UNSAT sont certifiés} (\code{certs/SUMMARY.txt}) : CaDiCaL 3.0.1 confirme chaque fois UNSAT (37 à 353\,s) et \code{drat-trim} répond
+« s VERIFIED » (36 à 210\,s), sur 1 cœur et moins de 3\,Go ; par exemple m16927\_s0023 : 1\,424 lemmes sur 1,1 million dans le cœur de la preuve.
+Chaque CNF (environ 607\,000 variables, 4,7 millions de clauses) est identifiée par son SHA-256 (\code{certs/*.gen.json}) et regénérable à l'identique.
+\emph{Portée exacte du certificat} : il établit que la CNF est insatisfiable, indépendamment du solveur. Qu'elle encode fidèlement le problème mathématique
+repose sur la validation du générateur (graphes réels) et sur le lemme~\ref{lem:lex} ; que ces problèmes épuisent une classe repose en plus sur les
+lemmes~\ref{lem:type}--\ref{lem:triple} et sur la complétude de l'énumération (§\ref{sec:enum}).
+
+\paragraph{Ce que cela implique aujourd'hui.} Aucune classe n'est exclue en entier. Les plus proches : graphe 29481 (classes 26, 34, 35) : 2 supports sur 3
+UNSAT ; graphe 5033 (classe 2) : 3 sur 5 ; graphe 16927 (classe 0) : 2 sur 6.
+
+%==================================================================
+\section{Résultats négatifs et pistes infructueuses}\label{sec:neg}
+\begin{itemize}[nosep]
+\item \st{N} Règle par colonne $3s_i+(Fs)_i\le6$ (bloc triangle/indépendant du quotient) : n'élimine aucun graphe.
+\item \st{N} Lemmes~\ref{lem:type} et~\ref{lem:triple} : n'éliminent aucune des 125 classes (mais filtrent $B$, cf.\ §\ref{sec:l25}).
+\item \st{N} \textbf{Condition spectrale} \st{D} : de $BC=6J-(3I+F)B$ et $C\mathbf1=14\mathbf1-B^{\mathsf T}\mathbf1$ on tire $CM=MK$ avec $M=[B^{\mathsf T}|\mathbf1]$ et
+$K=\begin{pmatrix}-(3I+F)&-\mathbf1\\6\cdot\mathbf1^{\mathsf T}&14\end{pmatrix}$ ; $C$ préserve $W=\operatorname{Im}M$ et $W^\perp$, où $C^2+C=12I$.
+Le spectre de $C$ est donc entièrement déterminé par $(F,\text{supports})$ ; conditions nécessaires : valeurs propres réelles, multiplicités entières,
+$\tr C^3\ge0$ et $\equiv0\pmod6$. La dérivation est validée ($\tr C^2$ prédit = $\tr C^2$ combinatoire dans les 33 cas), mais \textbf{les 33 cas passent} :
+la condition n'élimine rien. (Un faux « échec » est apparu d'abord : cf.\ §\ref{sec:incidents}.)
+\item \st{N} Modèle complet au niveau des sommets (triangles + 27 orbites indépendantes + phases), CP-SAT puis CaDiCaL, avec ou sans $B$ fixé :
+indécis en 2 à 10 minutes sur la classe la plus contrainte.
+\end{itemize}
+
+%==================================================================
+\section{Validation, erreurs détectées et corrigées}\label{sec:incidents}
+Aucun des incidents ci-dessous n'a affecté un résultat présenté ; chacun a été détecté par une vérification avant d'être rapporté.
+\begin{longtable}{p{4.3cm}p{5.6cm}p{5.6cm}}
+\toprule Incident & Détection & Effet / correction\\\midrule
+Portes ET mal encodées dans le constructeur CP-SAT (\code{OnlyEnforceIf(g)} au lieu de \code{g.Not()}) & « UNSAT » en 2\,s sans conflit, noyau d'une seule
+contrainte manifestement satisfiable & faux UNSAT \emph{rejeté} ; constructeur corrigé puis validé sur la tour $3\times3$ (SAT/UNSAT attendus)\\
+Interruption de CaDiCaL via PySAT inopérante & processus toujours actif après 10\,min pour une limite de 2\,min & remplacée par un plafond au niveau du processus\\
+Clause vide non gérée par PySAT/CaDiCaL & plantage du processus & rapporté comme « indécis », jamais comme UNSAT ; remplacée par une contradiction explicite\\
+Littéraux répétés dans les cardinalités & revue du code (risque, non observé) & remplacés par des copies équivalentes ; modèles revalidés\\
+Comptage de Sturm (racines \emph{distinctes}) & « valeurs propres non réelles » sur 7 graphes entiers : trop beau & faux positif \emph{rejeté} ; test sur la partie sans
+facteur carré\\
+Retour chariot dans la sortie de \code{drat-trim} & « NOT VERIFIED » alors que le journal dit « s VERIFIED » & erreur dans le sens prudent ; lecture corrigée et testée\\
+Recherche exhaustive Python trop lente, 6 processus à 100\,\% & gel ressenti du PC & arrêtée ; remplacée par CP-SAT dans Docker plafonné\\
+Mémoire insuffisante (8 puis 5 CaDiCaL en parallèle) & processus tués & 5 problèmes non terminés ; à relancer sur une machine à 32\,Go\\
+Comptes rendus intermédiaires : « 33 classes complètes, 13 incomplètes » & recomptage pendant l'audit & erreur de texte seulement : 35 et 11 (33 = nombre de
+problèmes) ; corrigé\\
+Affirmation intermédiaire « le niveau 2.5 n'élimine rien » & comparaison des énumérations avec et sans filtres & vrai au niveau des classes, faux au niveau des $B$ ;
+les exclusions dépendent donc des lemmes~\ref{lem:type}--\ref{lem:triple} (précisé §\ref{sec:l25})\\
+\bottomrule
+\end{longtable}
+
+%==================================================================
+\section{Ce que cela signifie, et ce que cela ne signifie pas}
+\begin{itemize}[nosep]
+\item \textbf{Rien n'est tranché.} La branche C3 reste ouverte ; aucune classe n'est exclue en entier.
+\item \textbf{Ce qui est acquis} (\st{D}/\st{C}) : une réduction exacte et vérifiable de la branche C3 à 46 classes de phases, dont 35 se ramènent chacune à 1--6
+problèmes quotient explicites ; 8 de ces problèmes sont insatisfiables, avec preuves DRAT vérifiées.
+\item \textbf{Si} tous les problèmes restants (et, pour les survivants, l'étage des phases sur $C$) étaient insatisfiables, $\Gamma$ n'aurait pas
+d'automorphisme d'ordre 3, donc $|\Aut(\Gamma)|\in\{1,2\}$. Joint à la branche involution (dépôt \code{conway99-involution}), cela donnerait
+$|\Aut(\Gamma)|=1$. Cela ne tranche pas l'existence de $\Gamma$.
+\item \textbf{Nouveauté} : non vérifiée. Le dépôt public \code{ibenarb/conway99-research} (« types O3 ») et \code{Lundle22/conway-99-cyclic-lifts} contiennent
+peut-être des résultats équivalents (classification des graphes $F$, réduction par phases). La priorité n'est revendiquée pour rien.
+\end{itemize}
+
+%==================================================================
+\section{Ce qu'il faut pour aller au bout}\label{sec:suite}
+\subsection*{Vérifications humaines (par ordre d'importance)}
+\begin{enumerate}[nosep]
+\item Lemme~\ref{lem:entries} et la forme de $Q$ (15 min).
+\item Lemmes~\ref{lem:type} et~\ref{lem:triple} : \emph{les exclusions en dépendent} (20 min).
+\item Lemme~\ref{lem:lex} (cassage de symétrie) : les UNSAT en dépendent (20 min).
+\item Argument $\tau=6$ (Ishida) (15 min) et le modèle de phases (§\ref{sec:phases}) (20 min).
+\item Rejouer \code{check\_all.py} et \code{audit\_verify.py} (bibliothèque standard + networkx ; quelques minutes).
+\end{enumerate}
+\subsection*{Calculs}
+\begin{enumerate}[nosep]
+\item \emph{Fait} : certification DRAT des 8 UNSAT ($\le 10$\,min par cas, 1 cœur, $<3$\,Go). Tout nouvel UNSAT se certifie de la même façon.
+\item Relancer les 5 problèmes non terminés, puis les 20 indécis avec un budget croissant (1\,h, puis 24\,h par problème). Coût inconnu : c'est la mesure
+à faire. Un solveur CaDiCaL occupe environ 1\,Go ; une machine à 32\,Go et 8--16 cœurs en fait tourner 12--16 à la fois.
+\item Robustesse : passer aussi à l'étage quotient les supports « sans filtres » des classes proches de l'exclusion (au plus 35 problèmes de plus).
+\item Compléter l'énumération des 11 classes à $F$ peu dense (formulation directe au niveau des supports ; plusieurs milliers de problèmes possibles).
+\item Pour tout problème quotient qui serait satisfiable : étage des phases sur $C$ (matrice d'Eisenstein $M^2+M=12I$).
+\item Rendre l'énumération des $B$ certifiable (par exemple énumération par clauses bloquantes avec preuve DRAT de la dernière insatisfiabilité).
+\end{enumerate}
+\subsection*{Matériel}
+La machine de calcul du projet (Ryzen 7 7800X3D, 32\,Go) suffit pour les points 1--3 ; les points 4--5 relèvent d'un serveur de calcul (dizaines de cœurs,
+jours de calcul) ou d'un accès à un cluster universitaire.
+
+\input{nuit}
+\input{plan_calcul}
+
+%==================================================================
+\appendix
+\section{Tableaux (générés automatiquement depuis les fichiers de résultats)}
+\subsection*{A. Les 44 graphes $F$ à Gram positif}
+{\small\input{tables_A.tex}}
+\subsection*{B. Les 46 classes (graphe, phases) et l'énumération de $B$}
+{\small\input{tables_B.tex}}
+\subsection*{C. Étage quotient : les 33 problèmes issus des 35 classes complètement énumérées}\label{sec:tabC}
+{\small\input{tables_C.tex}}
+
+\section{Reproduction}
+Tout est dans \code{Desktop/c3\_recherche\_annexe}. Images Docker : \code{c99audit} (Python 3.12, sympy 1.14, numpy 2.5.3, python-sat 1.9.dev15,
+ortools 9.15, networkx), \code{proofbox} (CaDiCaL 3.0.1 et drat-trim compilés depuis les sources officielles), \code{texbox} (LaTeX).
+{\small\begin{verbatim}
+python check_all.py                      # 26 temoins + 18 Farkas (stdlib seule)
+python audit_verify.py                   # verification independante A/B/C (networkx)
+python validate_quotient.py              # modele quotient sur srg(243,22,1,2) et tour 3x3
+python validate_full_model.py            # modele complet sur srg(243,22,1,2)
+python level2_phased.py 10 ; python level25.py 10 ; python reduce_classes.py
+python enum_all.py 120                   # enumeration des B (46 classes)
+python sweep_q.py 5 300 complete         # etage quotient (33 problemes)
+python cert_q.py stageQ_runs/<nom>.in.json 0 gen     # CNF exacte + SHA-256
+sh cert_check.sh <nom> 1800                         # CaDiCaL + drat-trim
+python spectral_test.py                  # condition spectrale (resultat negatif)
+\end{verbatim}}
+L'inventaire des fichiers avec empreintes SHA-256 est dans \code{rapport/INVENTAIRE.txt}.
+
+\section{Sources}
+\begin{sloppypar}
+\begin{itemize}[nosep]
+\item A.\,A.~Makhnev, I.\,M.~Minakova, Diskretn.\ Mat.\ 16:1 (2004) 95--104. M.~Behbahani, thèse, Concordia, 2009 ; M.~Behbahani, C.~Lam, Discrete Math.\ 311 (2011).
+\item Y.~Ishida, \emph{No involutions in the missing Moore graph}, arXiv:2606.29183v2 (2026), prop.~4.4 et 8.7.
+\item \code{infinityscroll/conway99-order3-f27} (14 août 2026) ; \code{ibenarb/conway99-research} ; \code{Lundle22/conway-99-cyclic-lifts} (GitHub).
+\item Dossier de départ \code{codex\_c3\_demarrage} (ChatGPT) : lemme de l'hexagone et généralisation, revérifiés ici.
+\item M.~Codish, A.~Miller, P.~Prosser, P.\,J.~Stuckey, \emph{Breaking symmetries in graph representation}, IJCAI 2013.
+\item E.\,R.~Berlekamp, J.\,H.~van Lint, J.\,J.~Seidel (1973) : $\srg(243,22,1,2)$, utilisé comme contrôle.
+\item M.\,J.\,H.~Heule, \code{drat-trim} ; A.~Biere et al., CaDiCaL.
+\end{itemize}
+\end{sloppypar}
+\end{document}

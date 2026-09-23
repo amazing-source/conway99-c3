@@ -1,0 +1,3 @@
+m16420_sL1: Z=6, cubes 325, to do 16, base loaded in 14s
+m16420_sL1: pass split -> 0 undecided (13738s)
+m16420_sL1 Z=6: cubes 325 -> UNSAT 324, SAT 0, other 1 => OPEN (13739s)

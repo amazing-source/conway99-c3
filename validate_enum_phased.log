@@ -1,0 +1,7 @@
+class  0: complete=True found 4 expected 4 (m16927_s0019,m16927_s0020,m16927_s0021,m16927_s0022) common 4 -> ok
+class 30: complete=True found 1 expected 1 (m12295_s0015) common 1 -> ok
+class 15: complete=True found 1 expected 1 (m21041_s0025) common 1 -> ok
+class 42: complete=True found 1 expected 1 (m00028_sL0) common 1 -> ok
+class 25: complete=True found 1 expected 1 (m08290_sL0) common 1 -> ok
+class 32: complete=True found 1 expected 1 (m09313_sL0) common 1 -> ok
+ENUM_PHASED VALIDATION: PASS

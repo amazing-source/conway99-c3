@@ -1,0 +1,112 @@
+%==================================================================
+\section{Plan de calcul et reproduction (23 septembre 2026)}\label{sec:plan}
+\emph{Pour la personne qui fournira le calcul et pour celle qui vérifiera. Chiffres mesurés sur les exécutions de la nuit (fichiers
+\code{cubes/*/results.txt}, \code{NUIT\_JOURNAL.md}).}
+
+\subsection{Ce que décide le calcul complet}
+Chaque étape est exhaustive : graphes $F$ (26 sur 156), classes de phases (46), multi-ensembles de supports par classe, puis étage quotient
+découpé en cubes qui couvrent tous les cas (chaque orbite indépendante a exactement deux doubles). Si tout va au bout :
+\begin{itemize}[nosep]
+\item \textbf{tout est UNSAT} : aucun $\srg(99,14,1,2)$ n'a d'automorphisme d'ordre 3 (sous réserve des points de la section suivante) ;
+\item \textbf{un problème quotient est SAT} : ce n'est \emph{pas} encore une réponse, car l'étage quotient ignore les phases du bloc $C$.
+Il faut alors l'étage des phases (\code{stage\_p.py}, prêt et testé sur le graphe tour) : soit on obtient un graphe, vérifiable en une seconde
+($A^2+A=12I+2J$), soit ce $Q$ est exclu et il faut traiter les autres solutions quotient de l'instance. Ce cas n'est pas chiffré.
+\end{itemize}
+{\sloppy Indices à ce jour : 10 problèmes quotient entièrement UNSAT, 3\,381 cubes UNSAT à l'arrêt (\code{MANIFEST.txt}), \textbf{aucune solution nulle part}, aucune solution
+invariante pour l'instance la plus symétrique. Cela rend UNSAT très probable, sans le démontrer.\par}
+
+\subsection{Niveau de confiance de chaque maillon}
+\begin{center}\small\begin{tabular}{p{0.28\textwidth}p{0.30\textwidth}p{0.34\textwidth}}
+maillon & garanti par & ce qui manque\\\hline
+$\tau=6$, graphes $F$, classes & démonstrations, certificats de Farkas & relecture humaine\\
+lemmes des entrées, LQ, niveau 2.5 & démonstrations (\S\ref{sec:l25}, \S\ref{sec:nuit}) & \textbf{relecture humaine du niveau 2.5}\\
+cassage de symétrie, couverture des cubes & lemme~\ref{lem:symlex}, validations exhaustives & relecture humaine\\
+encodages CNF & validations sur graphes réels et témoins SAT & (preuve formelle hors de portée)\\
+UNSAT de l'étage quotient & DRAT + drat-trim (9 instances) & DRAT cube par cube pour les autres\\
+\textbf{complétude des énumérations} & « infaisable » de CP-SAT ; certificat DRAT (\code{cert\_enum.py}) & certifiée pour 7 classes
+(0, 4, 15, 25, 30, 32, 42) ; \textbf{35 autres complètes à certifier ; 29, 43, 44, 45 incomplètes}
+\end{tabular}\end{center}
+
+\paragraph{Certifier une énumération.} L'« infaisable » final de CP-SAT n'est pas vérifiable : sur un modèle test, CP-SAT conclut dès le
+pré-traitement (symétries, réductions duales) et n'émet aucune preuve, bien qu'il en expose l'option. \code{cert\_enum.py} réécrit donc le modèle
+d'énumération avec phases entièrement en CNF, contrainte par contrainte : supports triés, $G_0$, TY, sommes de lignes, doubles, L1, C3, colonne
+phasée par orbite (parmi celles qu'autorise le filtre de type), égalités résiduelles, condition des triplets. On y ajoute la clause bloquante de
+chaque multi-ensemble trouvé ; l'insatisfiabilité, prouvée par CaDiCaL et vérifiée par drat-trim, certifie que la liste est complète. Une
+contrainte de symétrie est ajoutée : deux orbites de même support ont des indices de colonne rangés dans l'ordre. Elle est valide, car échanger
+deux telles orbites (bloc $C$ compris) transforme une solution en solution.
+\emph{Validation dans les deux sens.} (i) Toute solution de la CNF est relue par un évaluateur Python indépendant qui teste chaque contrainte du
+modèle ; (ii) chaque multi-ensemble trouvé par CP-SAT, débloqué seul, redonne SAT avec exactement ce multi-ensemble. Classe 15 (4,6\,M clauses) :
+débloquée SAT (0 violation), bloquée UNSAT. Classe 0 : chacun des 4 multi-ensembles débloqué seul redonne SAT avec lui-même (0 violation), les 4
+bloqués donnent UNSAT.
+\emph{Certificats} (CaDiCaL 3.0.1, preuve DRAT binaire, drat-trim VERIFIED) :
+\begin{center}\footnotesize\begin{tabular}{rrlrrr}
+classe & multi-ens. & CNF (sha256, début) & résol. & preuve & vérif.\\\hline
+0 & 4 & \code{f791a54edc40d441} & 202\,s & 27\,Mo & 174\,s\\
+4 & 96 & \code{32d5e21000cfa5d5} & 120\,s & 23\,Mo & 38\,s\\
+15 & 1 & \code{6e4274b135ed5b96} & 272\,s & 30\,Mo & 224\,s\\
+25 & 1 & \code{4a955e8e9e58b6b9} & 1\,179\,s & 84\,Mo & 330\,s\\
+30 & 1 & \code{c2e9662631bbf6cc} & 140\,s & 45\,Mo & 67\,s\\
+32 & 1 & \code{4cfb3bd63aa6c23d} & 180\,s & 61\,Mo & 79\,s\\
+42 & 1 & \code{b096ddbee272e204} & 863\,s & 76\,Mo & 611\,s
+\end{tabular}\end{center}
+Le coût est de quelques minutes à une demi-heure par classe. Réénumération avec phases : 42 classes sur 46 ont une liste complète (un seul
+multi-ensemble compatible par classe, sauf les classes 0 et 27, qui en ont 4, et la classe 4, qui en a 96) ; restent incomplètes 29 (31 trouvés),
+43 (2 trouvés), 44 et 45. Les 35 listes complètes non encore certifiées le seront par \code{cert\_enum\_all.sh} (image \code{c3box}), environ
+6 à 10\,h sur une machine.
+
+\subsection{Coût mesuré et estimation}
+Avec la méthode incrémentale, les passes à 5\,000 puis 50\,000 conflits règlent 85 à 95\,\% des 325 cubes d'une instance ; un cube dur coûte
+en moyenne 1 à 45\,min selon l'instance (moyennes mesurées : 1\,min pour m00028\_sL0, 15 pour m16420\_sL1, 22 pour m12295\_s0015, 45 pour
+m23431\_s0028). m00028\_sL0 a été réglée entièrement en environ 3\,h de CPU.
+\begin{center}\small\begin{tabular}{lr}
+poste & estimation (heures-CPU)\\\hline
+11 instances en cours (environ 200 cubes durs restants) & 50--100\\
+30 instances non commencées (dont les 18 de la classe 4), 3--6\,h chacune & 90--180\\
+certification DRAT de tous les UNSAT & du même ordre que la résolution\\
+classes 29, 43, 44, 45 & \textbf{inconnu} (principal risque)
+\end{tabular}\end{center}
+
+\subsection{Passage à l'échelle}
+\begin{itemize}[nosep]
+\item Environ 40 instances $\times$ 325 cubes, soit environ 13\,000 tâches indépendantes, plus les sous-cubes (25 par nœud dur, eux aussi
+indépendants). Chaque tâche : 1 cœur, environ 300\,Mo. Machine de calcul du projet (16 threads, 32\,Go) : 12 à 14 runners, un à deux jours pour la
+partie chiffrée. 100 cœurs : 2 à 3\,h. 1\,000 cœurs : moins d'une heure, la durée étant alors bornée par le cube le plus long (à redécouper).
+\item Limite : l'énumération CP-SAT d'une classe n'utilise bien que 8 à 16 threads ; pour des centaines de cœurs, il faut la découper elle aussi
+(par exemple selon le support de la première orbite), à concevoir.
+\item Les clusters n'acceptent généralement pas Docker : Apptainer/Singularity importe les archives d'images telles quelles.
+\end{itemize}
+
+\subsection{Reproduction octet pour octet}
+{\sloppy
+Trois niveaux, qu'il faut distinguer :
+\begin{enumerate}[nosep]
+\item \textbf{Identique à l'octet, vérifié par SHA-256.} Fichiers d'instances ; CNF (vérifié : m16420\_sL0 donne le même SHA-256
+\code{a706468daf92ee33\ldots} avec deux graines de hachage Python différentes et dans trois générations indépendantes) ; images Docker (archives
+exportées, \code{docker/IMAGES.sha256}, et identifiants d'image à retrouver après \code{docker load}, \code{docker/IMAGES.txt}) ; résultats sous
+forme canonique triée (\code{manifest.py}, \code{MANIFEST.txt}). Vérification croisée : les listes de supports calculées par trois méthodes
+différentes (LQ seule, réduction par $\operatorname{Aut}(F)$, phases) ont des SHA-256 canoniques identiques sur les masques 28, 8290, 9313, 13452
+et 29448.
+\item \textbf{Déterministe si l'on configure à l'identique.} CaDiCaL sur un thread, avec des budgets de \emph{conflits} et non de secondes, redonne
+le même verdict, et même la même preuve DRAT octet pour octet. Les exécutions de cette nuit ont utilisé des limites de temps et ont été
+interrompues puis reprises : leurs journaux ne se rejouent pas à l'identique, leurs verdicts si.
+\item \textbf{Non reproductible par nature.} CP-SAT à plusieurs threads (ordre de découverte, durées). Seul l'\emph{ensemble} final compte, d'où
+la forme canonique.
+\end{enumerate}
+Critère scientifique retenu, plus fort qu'un simple rejeu : \textbf{même CNF (SHA-256) et certificat DRAT vérifié par drat-trim}. Ce contrôle ne
+dépend ni du solveur, ni de la machine, ni de l'ordre d'exécution.\par}
+
+\subsection{Ordre des opérations recommandé}
+{\sloppy
+\begin{enumerate}[nosep]
+\item Charger les images : \code{docker load < docker/c99audit.image.tar.gz} (idem \code{proofbox}, \code{texbox}) ; comparer les
+identifiants avec \code{docker/IMAGES.txt}. À défaut : \code{docker/Dockerfile.c99audit}, \code{docker/proofbox/Dockerfile} (versions figées,
+mais binaires pas garantis identiques).
+\item Lancer les runners de cubes (un par cœur) :
+\code{docker run -d --cpus 1 -m 1500m -v "\$PWD:/w" -w /w c99audit sh cube\_runner\_inc.sh 5000} ; la file est \code{cubes/LIST.txt}.
+\item En parallèle, les énumérations des classes 29, 43, 44, 45 :
+\code{python enum\_supports\_phased.py <classe> 3600 1000 8}, puis \code{make\_phased\_instances.py} et ajout à la file.
+\item Certifier : \code{cert\_sym.sh} pour une instance entière ; pour un cube, CNF de base plus ses clauses unitaires, même vérification.
+\item Certifier les énumérations : \code{sh cert\_enum\_all.sh} dans l'image \code{c3box} (génère chaque CNF, puis CaDiCaL, preuve DRAT et
+drat-trim, une classe à la fois ; résultats dans \code{certs/SUMMARY\_ENUM.txt}).
+\item Régénérer \code{MANIFEST.txt} et le comparer ligne à ligne avec toute autre reproduction.
+\end{enumerate}\par}

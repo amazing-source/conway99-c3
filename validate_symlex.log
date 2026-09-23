@@ -1,0 +1,61 @@
+seed  0 t=3 n=6 |G|= 120 syms=  0 |S|=   70 orbits=   2 |S'|=   4 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  1 t=2 n=4 |G|=   4 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  2 t=2 n=6 |G|=  48 syms=  0 |S|=  300 orbits=  12 |S'|=  14 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  3 t=2 n=4 |G|=  12 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  4 t=2 n=6 |G|=  16 syms=  1 |S|=  300 orbits=  33 |S'|=  41 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  5 t=3 n=7 |G|=  48 syms=  5 |S|=  465 orbits=  18 |S'|=  19 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  6 t=2 n=6 |G|=  48 syms=  0 |S|=   70 orbits=   5 |S'|=   5 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  7 t=3 n=4 |G|=  24 syms=  5 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  8 t=2 n=6 |G|=1440 syms=  1 |S|=   70 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed  9 t=3 n=7 |G|=   4 syms=  1 |S|=  465 orbits= 133 |S'|= 170 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 10 t=2 n=5 |G|= 120 syms=  0 |S|=   12 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 11 t=3 n=4 |G|=   6 syms=  5 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 12 t=3 n=5 |G|=   6 syms=  0 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 13 t=3 n=6 |G|=  48 syms=  5 |S|=  300 orbits=  18 |S'|=  21 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 14 t=2 n=6 |G|= 120 syms=  0 |S|=  300 orbits=   4 |S'|=  12 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 15 t=2 n=4 |G|=   8 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 16 t=3 n=6 |G|=1440 syms=  1 |S|=  300 orbits=   3 |S'|=   4 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 17 t=3 n=7 |G|=   4 syms=  1 |S|=  465 orbits= 133 |S'|= 170 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 18 t=2 n=5 |G|=  24 syms=  0 |S|=   12 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 19 t=2 n=4 |G|=   4 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 20 t=2 n=4 |G|=  24 syms=  0 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 21 t=2 n=4 |G|=   8 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 22 t=2 n=4 |G|=   2 syms=  0 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 23 t=3 n=4 |G|=   6 syms=  5 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 24 t=3 n=5 |G|=  24 syms=  1 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 25 t=3 n=7 |G|=  48 syms=  5 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 26 t=2 n=4 |G|=   2 syms=  0 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 27 t=3 n=4 |G|=   6 syms=  5 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 28 t=2 n=4 |G|=  12 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 29 t=2 n=5 |G|=   4 syms=  1 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 30 t=3 n=4 |G|=  48 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 31 t=2 n=4 |G|=   2 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 32 t=2 n=6 |G|= 720 syms=  0 |S|=  300 orbits=   3 |S'|=   4 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 33 t=2 n=4 |G|=   4 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 34 t=3 n=5 |G|=  12 syms=  0 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 35 t=3 n=6 |G|=  48 syms=  5 |S|=  300 orbits=  18 |S'|=  22 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 36 t=3 n=5 |G|=  48 syms=  1 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 37 t=2 n=4 |G|=  48 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 38 t=3 n=6 |G|=  48 syms=  0 |S|=  300 orbits=  12 |S'|=  14 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 39 t=2 n=4 |G|=   8 syms=  1 |S|=    3 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 40 t=3 n=4 |G|=  12 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 41 t=3 n=7 |G|=   4 syms=  1 |S|=13950 orbits=3558 |S'|=4800 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 42 t=2 n=6 |G|=1440 syms=  1 |S|=  300 orbits=   3 |S'|=   4 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 43 t=2 n=5 |G|=   8 syms=  1 |S|=   12 orbits=   3 |S'|=   3 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 44 t=3 n=6 |G|=  48 syms=  0 |S|=  300 orbits=  12 |S'|=  14 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 45 t=3 n=6 |G|=  48 syms=  5 |S|=   70 orbits=   7 |S'|=   7 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 46 t=2 n=5 |G|= 240 syms=  1 |S|=   12 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 47 t=3 n=5 |G|=  12 syms=  5 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 48 t=3 n=4 |G|=   6 syms=  0 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 49 t=2 n=5 |G|=  24 syms=  1 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 50 t=3 n=5 |G|=  48 syms=  1 |S|=   12 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 51 t=2 n=7 |G|=  16 syms=  1 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 52 t=3 n=5 |G|=  12 syms=  0 |S|=   12 orbits=   2 |S'|=   2 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 53 t=2 n=7 |G|=  48 syms=  1 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 54 t=2 n=5 |G|=  12 syms=  0 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 55 t=2 n=4 |G|=  12 syms=  1 |S|=    3 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 56 t=2 n=6 |G|=  48 syms=  0 |S|=   70 orbits=   5 |S'|=   5 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 57 t=2 n=5 |G|=   4 syms=  1 |S|=    0 orbits=   0 |S'|=   0 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 58 t=2 n=5 |G|= 240 syms=  1 |S|=   12 orbits=   1 |S'|=   1 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+seed 59 t=2 n=6 |G|=   8 syms=  1 |S|=   70 orbits=  12 |S'|=  12 lost_orbits=0 lexmin_missing=0 invariant=True -> ok
+SYMLEX VALIDATION: PASS | orbits checked: 4044 | sigma constraints used: 82

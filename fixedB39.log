@@ -1,0 +1,2 @@
+class 39 mask 23221 eps [0, 0, 0, 0, 0, 0, 1, 1, 1]: 1 multisets (complete=True)
+  multiset 0: {"result": "UNKNOWN", "solve_s": 121.9}

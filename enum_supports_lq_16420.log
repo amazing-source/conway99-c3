@@ -1,0 +1,5 @@
+mask 16420: support multiset #1 found (22s)
+mask 16420: support multiset #2 found (55s)
+mask 16420: support multiset #3 found (83s)
+mask 16420: support multiset #4 found (95s)
+mask 16420: END status=INFEASIBLE, support multisets passing LQ: 4, complete=True, 102s

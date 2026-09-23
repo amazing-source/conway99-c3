@@ -1,0 +1,5 @@
+class 0 (mask 16927): multiset #1 found (39s)
+class 0 (mask 16927): multiset #2 found (149s)
+class 0 (mask 16927): multiset #3 found (195s)
+class 0 (mask 16927): multiset #4 found (280s)
+class 0 (mask 16927): END status=INFEASIBLE, LQ+phase multisets: 4, complete=True, 296s

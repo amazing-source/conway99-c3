@@ -1,0 +1,9 @@
+# c3box: everything in one image (Python + pinned solvers + native CaDiCaL 3.0.1 + drat-trim), for a single-image workflow (lab PC, Apptainer).
+# Build context: docker/proofbox (holds the two source archives):  docker build -t c3box -f docker/Dockerfile.c3box docker/proofbox
+FROM ghcr.io/astral-sh/uv:0.8.17-python3.12-bookworm-slim@sha256:c6fad5e08092142ea53fc03cbebb6304c5d06a25dd53ab450114f6c5f03376a7
+RUN apt-get update && apt-get install -y --no-install-recommends g++ make && rm -rf /var/lib/apt/lists/*
+RUN uv pip install --system sympy==1.14.0 numpy==2.5.3 python-sat==1.9.dev15 ortools==9.15.6755 networkx==3.7
+COPY cadical.tar.gz drat-trim.tar.gz /opt/
+RUN cd /opt && tar xzf cadical.tar.gz && cd cadical-master && ./configure && make -j4 && cp build/cadical /usr/local/bin/
+RUN cd /opt && tar xzf drat-trim.tar.gz && cd drat-trim-master && gcc -O2 -D_GNU_SOURCE -o drat-trim drat-trim.c && cp drat-trim /usr/local/bin/
+WORKDIR /w

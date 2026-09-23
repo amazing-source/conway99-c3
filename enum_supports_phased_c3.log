@@ -1,0 +1,2 @@
+class 3 (mask 5033): multiset #1 found (43s)
+class 3 (mask 5033): END status=INFEASIBLE, LQ+phase multisets: 1, complete=True, 146s

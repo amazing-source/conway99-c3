@@ -1,0 +1,175 @@
+%==================================================================
+\section{Complément de la nuit du 22 au 23 septembre 2026}\label{sec:nuit}
+\emph{Travail autonome (l'opérateur dormait). Même échelle de statut. Détail horodaté : \code{NUIT\_JOURNAL.md}.}
+
+\subsection{Recherche bibliographique ciblée}
+\begin{itemize}[nosep]
+\item \st{L} \code{ibenarb/conway99-research} (dépôt actif, lu le 23/09) : même quotient $Q=2D_T+S+2L$ ; démontre $\tau\equiv0\pmod3$ par un comptage
+élégant (les $231$ triangles du graphe ; les triangles fixés par $g$ sont exactement les $\tau$ orbites triangulaires) ; exclut les 4-cycles du 2-facteur $L$
+et démontre le « lemme B » (une composante triangulaire $\{a,b,c\}$ de $L$ reçoit exactement une arête simple de chaque autre orbite).
+Découpage par type de cycles de $L$ : 103 types « ouverts » de leur point de vue ; avec Ishida ($\tau=6$), leurs 2 types $\tau=27$ sont vides.
+Coût mesuré de leur méthode : l'exclusion d'\emph{un} type, $(6,3^7)$, a demandé 656 sous-cas et 652\,Go de preuves LRAT.
+\item \st{L} \code{Lundle22/conway-99-cyclic-lifts} : sous l'équation du quotient, l'équation complète équivaut à la congruence $W^2+W-12I\equiv0\pmod{\pi^3}$
+($\pi=1-\omega$) sur la matrice d'Eisenstein, soit une équation linéaire et une quadratique sur $\F_3$ (lemme clé revérifié : trois entiers $\ge0$ de somme 6
+avec $\pi^3\mid c_0+c_1\omega+c_2\omega^2$ valent tous 2). Utile pour l'étage des phases.
+\item \st{L} Thakkar--Severini (arXiv:2608.11211) : modèle d'orbites générique ; ordre 3 sans point fixe indécis en 30\,min. SAT Modulo Symmetries :
+non adapté (pas de multigraphe ni de partition imposée). « Smart cubing » : gains $\times2$--$3$.
+\end{itemize}
+
+\subsection{La relaxation linéaire LQ}
+\begin{lemma}[bloc triangles $\times$ indépendantes] \st{D}\label{lem:LQ}
+Pour toute orbite indépendante $Z$ de support $s_Z$ : $\sum_{Y\neq Z}C_{YZ}\,s_Y=t_Z:=6\cdot\mathbf1-3s_Z-Fs_Z$, $\sum_Y C_{YZ}=14-|s_Z|$, et exactement deux
+$Y$ ont $C_{YZ}=2$ ; en particulier $s_Y(i)\,C_{YZ}\le t_Z(i)$.
+\end{lemma}
+\begin{proof}
+Bloc $(i,Z)$ de $Q^2+Q=12I+6J$ : $3s_Z(i)+(Fs_Z)_i+\sum_Y s_Y(i)C_{YZ}=6$ ; somme de ligne de $Q$ ; lemme~\ref{lem:entries}(c).
+\end{proof}
+\paragraph{Résultats.} Sur les 33 problèmes quotient : \textbf{15 infaisables} pour LQ, dont les 8 déjà certifiés et \textbf{7 nouveaux}
+(m04776\_s0000, s0002, s0003 ; m04905\_s0004, s0005 ; m05033\_s0008 ; m15426\_s0017). \textbf{13 des 15 le sont par une seule ligne} : une orbite $Z$ n'admet
+aucun voisinage compatible ; certificat = recherche exhaustive sur une ligne (Python pur, \code{lq\_local.py}), recoupée par un modèle CP-SAT indépendant
+sur les 891 lignes des 33 problèmes (0 désaccord). Les 2 autres (m16927\_s0018, s0023) demandent la symétrie globale et sont certifiés DRAT.
+La variante la plus faible (sans lemme B, sans règle des 4-cycles, sans borne sur les doubles) suffit dans les 15 cas.
+
+\paragraph{Contenu linéaire épuisé.} \st{D} Toute somme de $C^2$ contre un vecteur de $W=\operatorname{Im}[B^{\mathsf T}|\mathbf1]$ se réduit, via le
+lemme~\ref{lem:LQ}, à une identité : LQ contient tout le contenu linéaire. Le reste est quadratique, dans $W^\perp$ ($C^2+C=12I$ y restreint).
+
+\subsection{Classes clairsemées : énumération directe des supports}
+Au lieu d'énumérer les $B$ avec leurs phases (explosif pour $F$ peu dense), on énumère les multi-ensembles de supports compatibles avec LQ, graphe par graphe
+(\code{enum\_supports\_lq.py} : supports triés + $C$ + contraintes linéaires ; chaque solution est interdite puis on recommence ; fin sur « infaisable »
+$\Rightarrow$ liste complète).
+\begin{itemize}[nosep]
+\item $F=K_{1,3}$ (masque 28, classe 42, auparavant 637 $B$ phasés sans fin d'énumération) : \textbf{1 seul multi-ensemble}, liste complète en 59\,s.
+\item $F=3K_2$ (masque 16420, classe 27, auparavant 1\,817 $B$ phasés) : \textbf{4 multi-ensembles}, liste complète en 102\,s ; cohérent avec l'ancienne
+liste partielle (les 2 autres supports qu'elle contenait échouent à LQ).
+\item Masque 8290 (classe 25) : 2 multi-ensembles ; masque 9313 (classe 32) : 2 ; masque 13452 (classe 5) : 1 ; masque 29448 (classe 6) : 1.
+Chaque fois, les multi-ensembles de l'ancienne liste partielle absents de la nouvelle échouent bien à LQ (\code{compare\_supports.py}).
+\end{itemize}
+Statut \st{S} : complétude affirmée par CP-SAT.
+
+\paragraph{Test de phases sur un multi-ensemble de supports.} \code{support\_phase\_check.py} : existe-t-il un $B$ phasé de niveau 2.5 (résidu exact,
+filtre de type, condition des triplets) d'une classe de $F$ dont les supports sont exactement ce multi-ensemble ? Si aucune classe ne le réalise,
+le multi-ensemble est exclu. C'est valide avec les représentants de classes : tout graphe se réétiquette pour que sa classe soit un représentant, et son
+multi-ensemble dans cet étiquetage est alors réalisé. \textbf{m08290\_sL1 et m09313\_sL1 sont exclus} ; certificat : vecteur de Farkas entier
+(\code{farkas\_phase.py}), revérifié en arithmétique exacte \st{C}. Bilan des classes clairsemées : classe 42 $\to$ 1 problème quotient, 27 $\to$ 4,
+25 $\to$ 1, 32 $\to$ 1, 5 $\to$ 1, 6 $\to$ 1.
+
+\subsection{Accélération de l'étage Q : encodage compact et symétrie complète}
+\paragraph{Encodage compact \st{D}+\st{C}.} L'ancien générateur encodait chaque contrainte « $\sum\ell=r$ » par \code{CardEnc.equals} (totalizer) ;
+la moitié « $\ge r$ » y devient « au plus $n-r$ » sur les négations, soit un totalizer presque complet en $O(n^2)$ pour les $\approx100$ littéraux
+d'une équation de Gram où $r\le6$. \code{lean\_encoding.py} utilise \emph{un} totalizer bidirectionnel dont les sorties sont tronquées à $r+1$
+($o_j\Leftrightarrow\sum\ge j$), tout aussi arc-cohérent, en $O(nr^2)$ clauses ; variables et contraintes sont inchangées.
+Validation (\code{validate\_lean.py}, PASS) : 5\,116 affectations exhaustives ($n\le8$, tous $r$) ; quotients réels BvLS (81 T et 81 I, lignes
+libres : SAT et évalué ; entrée corrompue : UNSAT, pour les deux encodages) ; graphe tour $3\times3$ ; deux instances certifiées UNSAT.
+\begin{center}\begin{tabular}{lrrrr}
+instance & clauses (ancien) & clauses (compact) & temps ancien (natif) & temps compact\\\hline
+m05033\_s0009 & 4\,727\,236 & 1\,117\,843 & 60\,s & 2{,}8\,s\\
+m29481\_s0030 & 4\,721\,852 & 1\,122\,170 & 260\,s & 8{,}0\,s
+\end{tabular}\end{center}
+
+\paragraph{Symétrie complète \st{D}.} Jusqu'ici seules les orbites « jumelles » (supports identiques) étaient échangées. Une instance
+$(F,\{s_Y\})$ admet aussi les permutations $\pi$ des 6 triangles avec $\pi(F)=F$ et $\pi(\{s_Y\})=\{s_Y\}$, prolongées aux orbites indépendantes :
+71 non triviales pour m23221\_s0027, 23 pour m16420\_sL*, 11 pour m21041, m23431, m00028\_sL0. On impose $\mathrm{ch}(Q)\le_{\mathrm{lex}}\mathrm{ch}(Q^\sigma)$
+pour chacune, où $\mathrm{ch}$ lit la matrice $33\times33$ complète ligne par ligne (ordre $0<1<2$).
+\begin{lemma}\label{lem:symlex}
+Soit $Q_0$ le minimum lexicographique de l'orbite d'une solution sous le groupe engendré par ces $\sigma$ et les transpositions de jumelles. Alors
+$Q_0$ satisfait les contraintes $\sigma$ et les contraintes jumelles (ligne$_i\le_{\mathrm{lex}}$ligne$_j$ hors colonnes $i,j$, pour $i<j$ jumelles).
+\end{lemma}
+\begin{proof}
+Contraintes $\sigma$ : minimalité. Jumelles : sinon, soit $c$ la première colonne ($\notin\{i,j\}$) où les lignes $i,j$ diffèrent, avec $Q_0[i][c]>Q_0[j][c]$.
+Pour $k<c$, $k\notin\{i,j\}$ : $Q_0[k][i]=Q_0[i][k]=Q_0[j][k]=Q_0[k][j]$. Si $c<i$, la transposition $(ij)$ laisse les lignes $<c$ inchangées
+et rend la ligne $c$ plus petite en colonne $i$. Si $c>i$, elle laisse les lignes $<i$ inchangées et la ligne $i$ diffère d'abord en $c$, plus petite
+(les diagonales coïncident : même type). Contradiction avec la minimalité.
+\end{proof}
+Validation (\code{validate\_symlex.py}, PASS, avec les fonctions de production) : 60 petits modèles énumérés exhaustivement, groupe complet des données
+fixées calculé par force brute ; 4\,044 orbites de solutions, \textbf{aucune perdue}, et le minimum lex de chaque orbite toujours présent ;
+36 modèles ont des symétries $\sigma$ actives et des solutions (jusqu'à 13\,950 solutions, 3\,558 orbites). Témoin : la version relâchée de m23221\_s0027
+(équations de Gram indépendantes retirées) reste SAT avec les 71 contraintes.
+
+\paragraph{Mémoire.} Solveur alimenté clause par clause depuis le disque (\code{solve\_stream.py}) : 200--350\,Mo par instance au lieu de
+$\approx1{,}4$\,Go, d'où 6 solveurs en parallèle au lieu de 2.
+
+\subsection{Premier résultat de l'étage Q accéléré}
+\textbf{m16420\_sL0 est UNSAT} \st{C} : CNF compacte avec symétrie complète (sha256 \code{a706468daf92ee33}), UNSAT en 2\,273\,s (CaDiCaL 1.9.5) puis
+3\,515\,s (CaDiCaL 3.0.1 natif, autre version) ; preuve DRAT binaire de 129\,Mo vérifiée par drat-trim (2\,852\,s ; 587\,320 lemmes dans le noyau,
+aucun lemme RAT). m16420\_sL3 lui est isomorphe. La validité repose en plus sur le lemme~\ref{lem:symlex} et sur la validation de l'encodage.
+
+\subsection{Cube-and-conquer}
+Les autres instances ne concluent pas en une heure (étage Q monolithique). Découpage : chaque orbite indépendante a exactement deux doubles
+(lemme~\ref{lem:entries}(c)), donc pour une orbite $Z$ fixée, les 325 « cubes » $\{w_{ZA}=w_{ZB}=1\}$ couvrent toutes les solutions. Un cube
+récalcitrant se redécoupe de la même façon : une orbite $V$ n'ayant qu'un double supposé (partenaire $P$) a son second double $W\notin\{V,P\}$,
+d'où 25 sous-cubes qui couvrent le nœud (profondeur $\le2$). Résolution \emph{incrémentale} (\code{cube\_q\_inc.py}) : un seul solveur par
+instance, chaque cube résolu sous hypothèses avec un budget de conflits (5\,000, puis 50\,000, puis découpage) ; les clauses apprises, conséquences
+de la CNF de base, servent d'un cube à l'autre.
+\paragraph{Validations.} \code{validate\_inc.py} (PASS) : sur le témoin relâché (m23221\_s0027 sans les équations de Gram indépendantes), 325 cubes,
+verdicts identiques entre l'incrémental et un solveur neuf avec clauses unitaires (29 SAT, 296 UNSAT, modèles revérifiés clause par clause).
+Le gain vient surtout de ce qu'on ne recharge plus 1,4\,M de clauses par cube : la plupart des cubes se résolvent en quelques millisecondes.
+\code{validate\_split.py} (PASS) : sur les 60 derniers cubes du témoin avec un budget d'un conflit, 11 cubes tranchés par découpage (7 SAT trouvés
+au fond de l'arbre, 1 UNSAT), 0 désaccord, 2\,819 nœuds.
+
+\subsection{Doublons par isomorphisme}
+Deux problèmes quotient $(F,\mu)$ et $(F,\pi(\mu))$ avec $\pi\in\operatorname{Aut}(F)$ ont la même réponse. Test systématique sur les 44 fichiers
+d'instances : m04776\_s0000$\sim$s0002, m04905\_s0004$\sim$s0005, m16927\_s0018$\sim$s0023, m29481\_s0030$\sim$s0031 (morts des deux côtés),
+m16927\_s0019$\sim$s0022, m16927\_s0020$\sim$s0021 (ouverts), m16420\_sL0$\sim$sL3, sL1$\sim$sL2. Les 33 instances d'origine ne font que
+\textbf{27 classes d'isomorphisme}, et les 18 ouvertes \textbf{16}. Contrôle de cohérence : chaque paire a le même statut (LQ comme étage Q).
+
+\subsection{Énumération des supports avec les phases}
+\code{enum\_supports\_phased.py} : pour une classe $c$, un seul modèle CP-SAT contient le modèle de supports (LQ) et un $B$ phasé de niveau 2.5
+de la classe, liés par « nombre de colonnes phasées de support $v$ = nombre d'orbites de support $v$ ». On bloque chaque multi-ensemble trouvé ;
+« infaisable » à la fin donne la liste complète des multi-ensembles compatibles LQ \emph{et} réalisables par la classe. Validation
+(\code{validate\_enum\_phased.py}, PASS) : sur les classes 0, 15, 30 (listes connues par l'énumération phasée complète) et 25, 32, 42
+(clairsemées), ensembles identiques, listes complètes en 17--296\,s.
+Variante négative \st{N} : un lex conditionnel des lignes de $C$ pour les supports égaux ralentit CP-SAT (masque 28 : rien en 600\,s au lieu de 135\,s).
+
+\subsection{Pistes testées sans effet \st{N}}
+\begin{itemize}[nosep]
+\item LQ au niveau d'un graphe $F$ entier (supports libres) : aucun $F$ exclu (21 faisables, 5 indécis en 5\,min).
+\item Version « phases » locale du lemme~\ref{lem:LQ} (cible $6\times3$ par orbite ; conventions validées sur 14\,580 comparaisons) : aucune élimination sur 15 classes.
+\item Version « phases » globale (\code{phase\_global.py}, validée par contrôles plantés, jamais de faux négatif) : indécise en 60\,s sur les classes
+symétriques 36--41.
+\item Générateur ligne par ligne : 35\,000 à 2 millions de lignes possibles par orbite ; non viable sans élagage quadratique fort.
+\item Balayage de la version globale sur 145 $B$ phasés à 15\,s chacun : 0 faisable, 0 exclu, tout indécis.
+\item Relaxation LQB (LQ + inégalité de budget) : indécise en CP-SAT sur toutes les instances testées.
+\item Condition spectrale par factorisation de $\chi_M(x^2+x)$ : déjà contenue dans le test spectral de l'audit ($CM=MK$ fixe tout le spectre de $C$).
+\item Solutions invariantes (ansatz) pour m23221\_s0027 : aucune sous 8 types de symétries (6 UNSAT, 2 indécis à 900\,s). Rien n'indique que l'étage Q
+y soit satisfiable.
+\item Les lemmes « pas de $C_4$ dans $L$ » et « lemme B » sont \emph{impliqués} par l'étage Q (Gram $\ge8>6$, resp.\ Gram saturé puis sommes de lignes).
+\end{itemize}
+
+\subsection{Bilan au matin du 23 septembre (07\,h\,10) et suite}
+\paragraph{Acquis de la nuit.}
+\begin{itemize}[nosep]
+\item \st{C} m16420\_sL0 (et son isomorphe sL3) : UNSAT, preuve DRAT vérifiée.
+\item \st{S} m00028\_sL0 : UNSAT par cube-and-conquer (325/325 cubes, dont 27 fermés par découpage, 675 sous-cubes) ; c'était l'unique instance de la
+classe 42 ($F=K_{1,3}$), qui est donc exclue à l'étage quotient. Certification DRAT cube par cube à faire.
+\item Instances d'origine : 27 classes d'isomorphisme sur 33 ; ouvertes : 16 sur 18.
+\item \st{S} Classe 4 (masque 30992) : liste complète avec phases, 96 multi-ensembles, 18 à isomorphisme près (m30992\_sP0--sP17), pas encore passées à l'étage Q.
+\end{itemize}
+\paragraph{Instances en cours (cubes UNSAT sur 325, aucun cube SAT).}
+\begin{center}\begin{tabular}{lr|lr|lr}
+m16420\_sL1 & 316 & m21041\_s0025 & 313 & m23221\_s0027 & 313\\
+m23431\_s0028 & 309 & m06717\_s0014 & 307 & m20723\_s0024 & 306\\
+m04907\_s0007 & 301 & m12295\_s0015 & 297 & m05033\_s0012 & 291\\
+m29481\_s0032 & 288 & & & &
+\end{tabular}\end{center}
+Pas encore commencées : m04776\_s0001, m04905\_s0006, m15426\_s0016, m16927\_s0019, s0020, m21045\_s0026, m26850\_s0029, m08290\_sL0, m09313\_sL0,
+m13452\_sL0, m29448\_sL0, m30992\_sP0--sP17.
+\paragraph{Classes encore incomplètes.} 29 ($F=K_{1,5}$ : au moins 16 multi-ensembles avec phases, énumération en cours), 43 (2 trouvés, puis
+indécis à 3\,600\,s), 44 et 45 (pas encore traitées avec les phases ; $F$ à une arête et $F$ vide, énumération sans phases indécise).
+\paragraph{Coût restant.} Les passes à 5\,000 puis 50\,000 conflits règlent 85 à 95\,\% des cubes en quelques minutes ; chaque cube dur restant
+coûte environ 30--45\,min de CPU par découpage. Il en reste de l'ordre de 300 à 400 sur les instances en cours, et les instances non commencées
+s'y ajoutent : plusieurs centaines d'heures-CPU. C'est hors de portée de ce portable (mémoire : 15\,Go partagés avec Windows, trois alertes
+mémoire cette nuit), mais adapté à la machine de calcul du projet (32\,Go) sur quelques jours, ou à un cluster.
+\paragraph{Arrêt sur ce portable (23 septembre, 10\,h\,14).} À la demande de l'utilisateur, les solveurs de cubes ont été arrêtés proprement :
+3\,381 cubes UNSAT au total, 50 cubes durs fermés par découpage, 1 indécis, aucun cube SAT. Par instance (UNSAT sur 325) : m00028\_sL0 325,
+m16420\_sL1 324, m23221\_s0027 315, m21041\_s0025 313, m23431\_s0028 309, m06717\_s0014 307, m20723\_s0024 306, m12295\_s0015 302,
+m04907\_s0007 301, m05033\_s0012 291, m29481\_s0032 288. L'énumération de la classe 29 a été arrêtée avec 31 multi-ensembles enregistrés (liste
+incomplète).
+\paragraph{Réénumération avec phases et comparaison.} \code{enum\_supports\_phased.py} a été relancé sur les classes de l'ancienne chaîne.
+Toutes celles terminées ont exactement \textbf{un} multi-ensemble compatible, sauf la classe 0 (4) et la classe 4 (96). Comparaison avec
+l'ancienne chaîne indépendante (énumération phasée de $B$ puis filtre LQ, \code{compare\_phased\_old.py}) sur 30 classes : 27 identiques ;
+les 3 écarts sont attendus (classe 4 : l'ancienne liste ne contient que les 18 représentants par symétrie des 96 ; classes 25 et 32 : l'ancienne
+liste contenait m08290\_sL1 et m09313\_sL1, exclus par les phases avec certificat de Farkas).
+
+\paragraph{Pour reprendre.} Tout est reprenable : \code{cubes/LIST.txt} (file), \code{cubes/<instance>/results.txt} et \code{subcubes.txt}
+(résultats), \code{sh cube\_runner\_inc.sh 5000} (un runner par cœur, environ 300\,Mo chacun), marqueur \code{FROM\_SPLIT} pour aller
+directement au découpage. Certification : \code{cert\_sym.sh} (instance entière) ; pour les cubes, une CNF = base + clauses unitaires du cube.

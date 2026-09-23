@@ -1,0 +1,29 @@
+# CNF files: large, and regenerable byte for byte from the code (their SHA-256 are in *.gen.json and MANIFEST.txt)
+*.cnf
+# DRAT/LRAT proofs: deleted after drat-trim verification; regenerable
+*.drat
+*.lrat
+# exact Docker images: published as assets of the GitHub release (too large for git)
+docker/*.image.tar.gz
+# third-party material (cited by link in the README and the report, not redistributed)
+litterature/
+ishida_*.pdf
+*.zip
+# transient outputs
+__pycache__/
+*.pyc
+cubes/*/cube_*_*_*.out
+cubes/.ref_epall
+stageQ_sym/claim_*/
+cubes/claim_*/
+cubes/iclaim_*/
+rapport/*.aux
+rapport/*.log
+rapport/*.out
+rapport/*.toc
+rapport/*.600gf
+rapport/*.pk
+rapport/*.tfm
+rapport/*.mf
+rapport/*.fls
+rapport/*.fdb_latexmk

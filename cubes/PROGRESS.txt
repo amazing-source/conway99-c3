@@ -1,0 +1,6 @@
+04:04 Terminated runner=cubeI5
+04:04 Terminated runner=cubeI6
+04:27 Terminated runner=cubeI7
+04:42 Terminated runner=cubeI3
+05:01 m00028_sL0 Z=21: cubes 325 -> UNSAT 325, SAT 0, other 0 => UNSAT (all 325 cubes) (1161s) runner=cubeI3
+06:53 m16420_sL1 Z=6: cubes 325 -> UNSAT 324, SAT 0, other 1 => OPEN (13739s) runner=cubeS1 (split)

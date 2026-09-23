@@ -1,0 +1,18 @@
+m16420_sL2 UNKNOWN rc=143 2125s worker=symS4
+m16420_sL3 UNKNOWN rc=143 2104s worker=symS5
+NOTE m16420_sL2 isomorphe à m16420_sL1 et m16420_sL3 isomorphe à m16420_sL0 (Aut F, validate_enum_sym) : runs arrêtés, doublons (le résultat de sL0/sL1 vaut pour eux)
+NOTE m16927_s0022 isomorphe à m16927_s0019, m16927_s0021 isomorphe à m16927_s0020 (Aut F) : retirés de la file (doublons)
+m16420_sL0 UNSAT rc=20 2273s worker=symS2
+m23221_s0027 UNKNOWN rc=124 3602s worker=symS1
+m16420_sL1 UNKNOWN rc=124 3599s worker=symS3
+m21041_s0025 UNKNOWN rc=124 3599s worker=symS6
+m23431_s0028 UNKNOWN rc=124 3599s worker=symS4
+m00028_sL0 UNKNOWN rc=124 3599s worker=symS5
+m12295_s0015 UNKNOWN rc=124 3599s worker=symS2
+m15426_s0016 UNKNOWN rc=124 3599s worker=symS7
+m16927_s0019 UNKNOWN rc=124 3601s worker=symS1
+m16927_s0020 UNKNOWN rc=124 3600s worker=symS3
+m21045_s0026 UNKNOWN rc=124 3601s worker=symS6
+m26850_s0029 UNKNOWN rc=124 3601s worker=symS4
+m04776_s0001 UNKNOWN rc=124 3601s worker=symS5
+m04905_s0006 UNKNOWN rc=124 3600s worker=symS2

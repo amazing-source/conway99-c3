@@ -1,0 +1,234 @@
+# C3 manifest: kind  name  sha256(canonical form)  summary
+code      ansatz_q.py                              25e3208545f283d66f038f94f0d9628db08ee96d569389505d8b318a2898fbe7 
+code      audit_verify.py                          d5a1e349574d1ef0acf6f1946ee614135e171f807eac517a9dbab15843ac0311 
+code      cert_all.sh                              b3df22ef5443ccb98fcf8f29e3c694e7f9213e7a03e12abb66c78e8735dbc83a 
+code      cert_check.sh                            ceaa20bb22eb37fbe16027777069d8dcb5c3ab455aea9b30cd9a0a2eb06b7cb4 
+code      cert_check_bin.sh                        8a89e5619de32680d248dc695bea91eadd7b9a905d5638d25e99df7d287b9a47 
+code      cert_enum.py                             b62abe8d554b5949afbaca248af636ea3f3659d20a9a426d8d9cc4c68932c83a 
+code      cert_enum_all.sh                         440d9112479488d7e47b7dfcf23d44c3b569fb985d55039cdb698ea0beee2774 
+code      cert_q.py                                3944789f652a3f61030f7b76f20c0655f8ef7867530977bad212ff1c84541b0f 
+code      cert_sym.sh                              b7910a7cd81a97a1ddeb55655adf0caca4b7afd763254bda0ca33fb18b611d52 
+code      check_all.py                             70ad9855733d4a59a8bba4f0c8418a58a11be2dbce62f9ecaeb05409bb216d7f 
+code      compare_phased_old.py                    27d04c2f7b3ff6d3e52091b8795cbc148371dcf8f4fb7aa49a9bf23d4fe57c7d 
+code      compare_supports.py                      44eb7c5ed7fdea654a2a85a57f3faacfbda126922192d7b545894613502424bb 
+code      core.py                                  90c348ec851bdff6bcd845b7d837305f1604dcebd233a1ad5031ad61755630bc 
+code      core2.py                                 b34cf41a3757b9e51610939d97980e783ab220bd9420b42bbec920287666a1b7 
+code      count_multisets.py                       b8a9700ffa7bc365168858de007ad2079e9e7ac5027adb680f08a041ddabf20d 
+code      cpsat_aggregate.py                       d2ce8c6ac4cee0d8f7110e7c1e49f035441d0ec0506b9164d8728400f087cc34 
+code      cube_q.py                                f02053d2c16edb9e588d0bde8c8414f404a445f02e5b4e055ee10abb67518aa5 
+code      cube_q_inc.py                            2cebf1c24657f9ae4065b0484c111893d6437eec111e770049b0dfe8d85cd8c6 
+code      cube_runner.sh                           546a604d4e8e17f1d62377e97675d7038d1882f1cd39f871f771bcb980ac6b4b 
+code      cube_runner2.sh                          1e4e40b2a0e35907351d29cc45ecdc73dbe8e4a21e53ddbab923c49141c42b58 
+code      cube_runner_inc.sh                       8530f0be2e595e67062c9bc31a4ef1ce6a55039d527b80986c77276056e6d6c1 
+code      debug39.py                               3addb6c506230c8091d6532a9f6518f6e6d125c812bb5c85f729cd2ecec8ccfa 
+code      enum_all.py                              486b9b6a72ec5b26f06a4d6c438f1c338c2b8fd08df0b322d4ec109f43ea025b 
+code      enum_nofilter.py                         c7360a9fbd3012a0ac732fedc0b6d1aea501ea268d99f7c7a30638ba39e17606 
+code      enum_supports_lq.py                      ec32ae0cab9dd2e5be2ee43d954b125bbc1cbd025333423df139bb1eb6b42897 
+code      enum_supports_phased.py                  e7dc9d44242508d8b943192e99a2bf5273d23bb20ddf59dc977c1a5b5692fc27 
+code      enum_supports_sym.py                     032e31bfe0e602ea18d8b17d881586552d4bbb4001f868955c36f0cfb6d5983d 
+code      farkas.py                                c51578bab3ef173e3d84d4b24a0bedfc79fd285712fcb54c239678d374e64e50 
+code      farkas_phase.py                          af929501d8bb58badec0f44f813fd7f889e60b82ee555530208cacbfdbaf535c 
+code      full_model.py                            3646cb40a3f0a9064e9489de4bddaaabc9f8df31627bcdac6b3d4f2ef0869d84 
+code      lean_encoding.py                         5312396479f354cca693c8297373800bdcc3ef15be95e58a644aa79fcf96d22c 
+code      level25.py                               fc2f1282ad1b472a65e217b52a82ef77a7312acaecfb700c288c965f583182eb 
+code      level2_phased.py                         042e8be2efa6347791a08c11b7b507c50c85d0ccd2da5c755af47aab4c6609ba 
+code      linear_relaxation.py                     4ddabbf9af6de1fbb4c5c2a3c37f3faa7b075a8acf6baae4455c004fa3cabcce 
+code      lq_local.py                              3990dda7a76f22079bd1b203ea158601bfd360a1df8a61a3955cdffbbc0c3c1a 
+code      lq_local_crosscheck.py                   37a38983f290a304739a5f2e80adf5bad9f35273f58a14e5d80d1336e46d1be2 
+code      lq_variants.py                           8b725f0c5cdfd5f7ceaa31d73a39b774768b9b7e7802e36592e3feeeb1141717 
+code      lqb.py                                   85bfafdd3ceb2951414360a1fa3ea796a2c1920209dec2d048e017ea8bf10f2e 
+code      make_phased_instances.py                 efad780361cfaafeb9df6fee273f78724131b19139b9dc4e4a7c4f46adb63741 
+code      make_sparse_instances.py                 ba4fcb9108bf0ff84964cedf28fbb7fa14b52b9528dcfa549ce4796d3dd1c614 
+code      make_sym_instances.py                    5f95cf5a14d9ff5c1c3d7535f8950c573a52fed858c2fa39bef146f55492ba23 
+code      manifest.py                              8873da450086c9efad33aaac0b8a0a23120fa83f533370622bfd0e5a81a3ddd7 
+code      motif_v2.py                              4d792b48f518ed7c243f6b4329229abd1e9843a575e495d9495bc133270bf97a 
+code      phase_global.py                          9cb301518f886d93593adbb48f6497cfdcd68f3350a0151916bc53469309e525 
+code      phase_lnc.py                             f92741428d349f43f2ded65ca1bfcd452d5a3fb1c1a083e9f724f502aa78a52b 
+code      quotient_model.py                        4e4b8df4e1d66bd8ff8613799ee19430b6cb2310cf1d6f63fa6492ac3f79bef0 
+code      reduce_classes.py                        e09418da87d9226d774c7daf8fd5648cbed4ee9033ebfa9e9f0d48623e4b800a 
+code      relay_marker.sh                          12b289b90ae258726790717fa0b3cf862bbf9978376b537fb230c80b38bd08be 
+code      relay_split.sh                           a8aaf2b7f12beae9418cfb84f5aa83a1a0ba94189706a217560410332748f7ac 
+code      row_counts.py                            2d5bed4a463d3c9c75ccc2b251c95ee35a78e86073f606c36ce81d1c4eb39ae1 
+code      run_one_q.py                             9cce1732975d5cc23fddcf1d2317429321ee1889b42de8729814debca013a48e 
+code      run_one_q_long.py                        940478c2f3e7cdd0152c5d0bf0f7b9520a7d819ddd1733e3a2ee53f2c11e44cb 
+code      solve_class.py                           732ec7a3b170372eac6960e279f06419cb5afbf722065559a32514aee5e0492d 
+code      solve_fixedB.py                          730a31daa8aef577399c67a430586801a732bd8f2935bb3e84ad187f66b8b391 
+code      solve_nosym.py                           e99b5aeb76d5086e9bfb419a6df4cc561c2113199c015c6dfcd4d0f3e53ce9ea 
+code      solve_stream.py                          ff695686a5dec9a91c18ce606b9157079fac208cc38f59aebccc89a6f142a166 
+code      spectral_test.py                         722f4acb522cc21d848e35dc0f2fed408b7695d2b43e21db65735f35014a8feb 
+code      stageQ.py                                7f8396e27fea4328012db3c6dacc0f6233585b510b0be58c546721c66179e996 
+code      stage_p.py                               887c4bd1054c4011f8f432b446f09abc6fc14734b609c4179175a894502e784f 
+code      stageq_long.sh                           1ae90a2ed1e9035082fa63e0a21006c25962078c76481cc2b99797584f036aa8 
+code      stageq_sym.py                            837f4eaa1606cc0ab7ce39a60ba4c2c895abe50c356815ad63af5850b0293468 
+code      stageq_sym.sh                            004ac54cd03d28bab3bbf5203fe12d36488328117a843d742595c6dba75c3f95 
+code      stageq_sym_gen.sh                        4927ed5601d49a201c5c5bd0b656658709648607bf204ff85a3cfa19cb5f9c09 
+code      support_phase_check.py                   b41903ca07624dd1f91d070da89fe6a9ed3de03cb9c3108226bba7ac51e31021 
+code      sweep_q.py                               163b7659e1941669028b4076135f63bbd6dc933e818d2ab6c963ee774575b439 
+code      validate_builder.py                      30c4bc0817c4000c95cd2c6fd919d24e7aa8391264b4200e3077ee812dcee935 
+code      validate_cnf.py                          3d55455cefcc8fd413905a229a6aa2df546f4b5a8634d2f25904fd7ad97c077a 
+code      validate_enum_phased.py                  52994c3decffdf7fe97664478f6f5fb34515fc676c45681304113f7224af926e 
+code      validate_enum_sym.py                     d69f955be7be30a3415211c9af0aab17256b4524a79cd010b6c05962cc75c204 
+code      validate_full_model.py                   2802c2da0614ada0a0a420ac841f048717007c231c545fc04486d9d7d29ed87b 
+code      validate_inc.py                          c54d0af61c9d3e362adc120eda551c60cb4844da31b62d1a41434ec649d3065d 
+code      validate_lean.py                         4ebf8d5afb0ce6106768706725cec056c171314cf6bfaa803e394bc1ff907f77 
+code      validate_lex.py                          820a58c56da94957fcc33869efcac391fb56cd5a0fbf9666793106acec9cf5c4 
+code      validate_phase_global.py                 ed0c71ad1c7ad1faed7ef75847c1bcee6532dc52d16e5f6b1b2c1223c1295b3e 
+code      validate_phase_global_dense.py           ff421d6043f75510ff8a52638091682a95b0d9f137bc75029aae26b64278c788 
+code      validate_phase_lnc.py                    410432f5edebc6e658fe6e644eaf03bd43b8b6883d730e6b709c9c4abe673631 
+code      validate_quotient.py                     f4e255c41ed90cf2da54476b049b139e7dbb73843150ecadf19c6120b175e655 
+code      validate_split.py                        b6740b66a2d47eacf17e03c8a4b83b174fa04e4a8a46c4c71319fd10aca78dec 
+code      validate_symlex.py                       fa51e9c8944897176df13f6b7c5e145ce8b504d435cffe73b753a79fa410e0ca 
+code      validate_zfeasible.py                    506855ead40cea25c43c001bd2bc469422fbab3162097b043d606409a2662fca 
+instance  m00028_sL0                               5a41eac754f1893da80c2f8d662074de2e9a8f2b656bba2b2f52375b78f3869b 
+instance  m04776_s0000                             64f104e4362ef5068160d6f8af1d48d062ac126323613261fccba1cdb47f2561 
+instance  m04776_s0001                             17e00714c4c169b0795ef5632df16b4d79e3c13c173b802c5bb88d965ff9fd3a 
+instance  m04776_s0002                             6fddc3b587cfb56db56b51ed9c67f452a8b8feae0ef1558089ad8e598cf0ac4d 
+instance  m04776_s0003                             6d06c09b866141144263a6612dde1cada8a6969beaf2aeec89213f1f1366757b 
+instance  m04905_s0004                             81ce1e37efc2563f18d40f7cc603928ae04dd472e5651e306835e371b86e292e 
+instance  m04905_s0005                             15a54ed2a82a8c461433bd4b1c72d76ef70b57e741070f2c3df877cda18e9140 
+instance  m04905_s0006                             0b6b18ec05176752d9669910a2917e716836b8579dce5beb14af14a1d9ade714 
+instance  m04907_s0007                             64c9164ab4808508bbcff3de1dd4defabf1d199e661cbd072481debabdc7a7f4 
+instance  m05033_s0008                             6f1ad63254ad0ae39d3c9410566e8e9472334e78840b1c518508c81d774d4d5c 
+instance  m05033_s0009                             e1a06c7ba3cf2e5c14bf2c542eb14bec6cdb9de74598125947f5ef8cafdfa0e1 
+instance  m05033_s0010                             44fdf25d3abf4c82a78141a483f1f62030514ef64fade5f5aef03f9e98fc3335 
+instance  m05033_s0011                             8df889a402fac78479b44d58d56a0e49cb289384d71ef7624c3d43ba6d8ec52f 
+instance  m05033_s0012                             055f7235e72a9ce8c6c5e7ff7a2f84deeb0140dff2fcf7ac891ff2b1ab79acd2 
+instance  m06717_s0013                             3858502755713e14812258c2899de7da7be566b3a6ebeeb78029e420c68c6ee8 
+instance  m06717_s0014                             d50b46927262e6f076cb429840869c6da9aad6ca23ae868efd6159b80c6f8bd3 
+instance  m08290_sL0                               3d480589b0f2e6ef6a1b446896014aa62065985766c598a97da95c7aa01efda8 
+instance  m08290_sL1                               abfaf8cb1c323e10dee54630665938b2d84257cd66498bf06e86b91178638f5e 
+instance  m09313_sL0                               21b7beb834e00adbfa1400eb986dedd8b7cd3e10f3a2de19e67f258a38df36a6 
+instance  m09313_sL1                               544f5a9611f03056a303b66f0c0ec248ce626c01f410e6b31717e41352ba838a 
+instance  m12295_s0015                             b07ffe50c4eef4f7ea38aea605a064a4fcd99a99ee75c31d73f101e578e1d5c2 
+instance  m13452_sL0                               bba5dc20f6cb74585668bf90f4b281eeb2cb240f719a62496a9ad5423dd4357d 
+instance  m15426_s0016                             d16daa73a334e76a5f59f04ed60863ef6268e72fa66f5269ab6112f1fe961996 
+instance  m15426_s0017                             7e45319f9223e148de416f96b4ef3a09500591dd03bf88084aa4b350b957c32e 
+instance  m16420_sL0                               a76e14c7e9864e8753e8427e599625f9101d503214fb6e8d01cd9e28f61dce1e 
+instance  m16420_sL1                               cf346a7d15a7b4aff2ac7a6c5648bb4dab9ea35dbb67b21ba029b1d49d5dd586 
+instance  m16420_sL2                               133f4c6d3fbff19576fb6a4b772f618c9e7549ce5654006aeae7e514407700b2 
+instance  m16420_sL3                               5d3a71f26f84bb2d7f94f02cbe31adeb743f9054be5a6193ea447fe73073877a 
+instance  m16927_s0018                             414264595b0fe303f43d2d682c8b09c62fd8ef2719ac028b45f91f42545e9fd8 
+instance  m16927_s0019                             93940121a8079bfa3507abf2b2bcb57b0950d398c945c8f767fb078056f6e41b 
+instance  m16927_s0020                             f8bb227683245b01e57266dc1d5b43c45fc107e09130495d68afdaecad8e7bc4 
+instance  m16927_s0021                             c6a6e5d361012c7243bf56fa8e0c6d98de64dcfd79f6f19266982c1433a5b910 
+instance  m16927_s0022                             e0bb05bf983f9cec47b1d59f0554e42c9785904a82ed5420f6ae3ea581845d0d 
+instance  m16927_s0023                             6514efad895acc1c7e7ed1013235f3777bf0a9be192faf29465c0f983c6a6d9f 
+instance  m20723_s0024                             c7e14a91cdc8b6a3b4f2d70be6b6a544db866f6bd83edaa183f2a81d804df079 
+instance  m21041_s0025                             d594ffe4f0cf5d7f8bc3fbb54b9dd71b702de08db1ef9b92a1cd342f7c6dde51 
+instance  m21045_s0026                             7e304178de724c79f1e4f2457ad037d0daa1e39375a098663229d4d8aaac1703 
+instance  m23221_s0027                             cd95f5e560b9739164de245e109c757988bacca52c6e5b5a2f0cbd8e3d62e753 
+instance  m23431_s0028                             a15f58374be3878564d3c7d16d605275857a69ba96f13aeec6e043520306d3bf 
+instance  m26850_s0029                             b6fc3fe37de6f006765147e5a908fb016e79be33dfcc6e87001f136b7b8c7e57 
+instance  m29448_sL0                               4065d530bd358bbe7f9c07a4791217fc9300e64587ce33759d9149ffc3589d43 
+instance  m29481_s0030                             6a8a9bbaade0d0c8658d2e83179f08653f1e8cc6874c495dd002e0e36ff5d29e 
+instance  m29481_s0031                             f757c46b680e9f8df01b003272901cf8485b9ead7b353dd0211627a2379b7660 
+instance  m29481_s0032                             f59847b395eac288666f2160deadd2728088200b1ae9735f75af266bc6bb1713 
+instance  m30992_sP0                               01364fc3b922c4e49ef8d3dece7591c389bf6358cb3404a9a3e93bc89e501f6f 
+instance  m30992_sP1                               2bb3e6a171a122c55d6c9d2be0e5412a7d1f3ece47f0eafba0f068326ea12d5e 
+instance  m30992_sP10                              a1d9552fca41a00f4bae548eff19fbd5a776b97ffac54b4c1016771a238c624f 
+instance  m30992_sP11                              9305a12c6521ba83472fe8cf0a655294b43f2c61472b2001ae1da4a7aead65bc 
+instance  m30992_sP12                              b47be8c253c9f105e216bda3d1862fbad28bbc6240de4398f9fdabd0c282b594 
+instance  m30992_sP13                              3496f19d1f7071faad277289ff7ce9c540382d4e84d73ff97a5c4eb1b79ceacf 
+instance  m30992_sP14                              ec724d3e684cc8f57eab8197598fb75aabcd6e0620adb9a435da22dd978df1c3 
+instance  m30992_sP15                              1f4613bf92864ff553552b842b24c852dc771129e55c3d3cea83e2045861d6ab 
+instance  m30992_sP16                              1675a9699c4aed31a8c89489cbd5ab6d6312392dd963b775ed69ad7bc63a8294 
+instance  m30992_sP17                              348dcfd622e8bb3ba0c89960e8eda4ce548183da1925b40965125ca0f1a2ad2b 
+instance  m30992_sP2                               049800276ebea260d0f1a66f96827abbec85a159f1728413a22ebfb12266e280 
+instance  m30992_sP3                               743654983a47e4d947f01364103275bdac87bd432bfc8e5ddbeeafa87fc0575e 
+instance  m30992_sP4                               ccedb338df7ce9040bb66b192534e722d15415ad0d5b29c540428c109408249f 
+instance  m30992_sP5                               448cdc3a08ae0f148e1da8f7a088a457e022655ed4830d451532e603bd8d6420 
+instance  m30992_sP6                               5ece7b08bdb633a54873fe4875c9cc8e18cef8059eb8009557ce82b548ef9aef 
+instance  m30992_sP7                               1a4d3c4de85ab7bee313f98076c5b60f261a7e602fa33f026d436a4c77cabab7 
+instance  m30992_sP8                               99e86661b9090537aa1ed6e3fce2e096b2a81ed5c06ada4dd28187ffd624f522 
+instance  m30992_sP9                               a88af09ef7253695a14d49eda9a8c1b36a17dffc2e5d1cb3d95a4c45422571d4 
+enum      enum_supports_lq_0.json                  4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_lq_13452.json              e5d3a733861ab3b93398152272f3281c97d520edaf61e5f57b944bd488064ead complete=True n=1
+enum      enum_supports_lq_16384.json              4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_lq_16388.json              4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_lq_16420.json              c70574ec978d0a8adc19e00b30bb8d86e64014a38ed1ba284d9fa902f891379f complete=True n=4
+enum      enum_supports_lq_26896.json              4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_lq_28.json                 8ca33f126fb5fe84cb275ae36be48ec17c90bee05adb86f122ec2af8bff64507 complete=True n=1
+enum      enum_supports_lq_29448.json              1bdc6c22d676bcaab474b2b912169ccd686a20d43038548c8c966d5aba44082d complete=True n=1
+enum      enum_supports_lq_30992.json              4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_lq_8290.json               8d04d1d8d42a18cce2d0a92505a6fcc702dd81df8d1e675e76c41992c9121110 complete=True n=2
+enum      enum_supports_lq_9313.json               2b66aa43bfad2e1118e9cacb85af5b82bb6ae44ef70558b3c1a511c83411e31d complete=True n=2
+enum      enum_supports_phased_c0.json             b0780e08cea1e6e3a1a94665ea58204ea598e0c9b8b5cc0cf8fbbe97ac116210 complete=True n=4
+enum      enum_supports_phased_c1.json             dc2667eeaebd9b36c48977ac7e3c414cab366375d0aa45924a70180419e90521 complete=True n=1
+enum      enum_supports_phased_c10.json            01b5d290188af423dec6b70392f7eeccf18372a56c0c7bfeeb5e461243f914fb complete=True n=1
+enum      enum_supports_phased_c11.json            585214bd760cf61ae23984fec9fc469ecadecc0035b787ed55b78ad65742c78d complete=True n=1
+enum      enum_supports_phased_c12.json            3e5d570214904dbfc18cf361cebaab4a4912e17baa1dda3141210ddd2307a976 complete=True n=1
+enum      enum_supports_phased_c13.json            3e5d570214904dbfc18cf361cebaab4a4912e17baa1dda3141210ddd2307a976 complete=True n=1
+enum      enum_supports_phased_c14.json            011a7ec8e36ffac68e37f41c5ede5b04faca11779d6eb459dd0305cc24e267b5 complete=True n=1
+enum      enum_supports_phased_c15.json            24851e657578bb935236deef1e3d53dbd7c3c0b0b68a6c6b81938403e56280e1 complete=True n=1
+enum      enum_supports_phased_c16.json            dc2667eeaebd9b36c48977ac7e3c414cab366375d0aa45924a70180419e90521 complete=True n=1
+enum      enum_supports_phased_c17.json            dc2667eeaebd9b36c48977ac7e3c414cab366375d0aa45924a70180419e90521 complete=True n=1
+enum      enum_supports_phased_c18.json            585214bd760cf61ae23984fec9fc469ecadecc0035b787ed55b78ad65742c78d complete=True n=1
+enum      enum_supports_phased_c19.json            585214bd760cf61ae23984fec9fc469ecadecc0035b787ed55b78ad65742c78d complete=True n=1
+enum      enum_supports_phased_c2.json             4942541489d74912736e00ba89796574ecdc3d9b77f8a7cda19213e5d6f13794 complete=True n=1
+enum      enum_supports_phased_c20.json            aedcb370a1513fc05e681bba6423ded0410315b6e2b4aa21b6bf437234db1fdb complete=True n=1
+enum      enum_supports_phased_c21.json            a5fa7fdbba9bd0fc8b9c3fce1572d90cc1691d566aaf660868f943fd4ba2f903 complete=True n=1
+enum      enum_supports_phased_c22.json            aedcb370a1513fc05e681bba6423ded0410315b6e2b4aa21b6bf437234db1fdb complete=True n=1
+enum      enum_supports_phased_c23.json            d78e754df555cc7c02318a5e72373ae0d7a8880ce3bea1efa1dafd6dfb2848d7 complete=True n=1
+enum      enum_supports_phased_c24.json            d78e754df555cc7c02318a5e72373ae0d7a8880ce3bea1efa1dafd6dfb2848d7 complete=True n=1
+enum      enum_supports_phased_c25.json            c1ca389d1f03a97798ca853225a1f46ac759d4c9ef27c7f8319673def4143198 complete=True n=1
+enum      enum_supports_phased_c26.json            a5fa7fdbba9bd0fc8b9c3fce1572d90cc1691d566aaf660868f943fd4ba2f903 complete=True n=1
+enum      enum_supports_phased_c27.json            c70574ec978d0a8adc19e00b30bb8d86e64014a38ed1ba284d9fa902f891379f complete=True n=4
+enum      enum_supports_phased_c28.json            d78e754df555cc7c02318a5e72373ae0d7a8880ce3bea1efa1dafd6dfb2848d7 complete=True n=1
+enum      enum_supports_phased_c29.json            8fcb67ac69b0c6e6f0012b0427a6ddc8979c6d097e69bd7fb59ddf92f6dd6772 complete=False n=31
+enum      enum_supports_phased_c3.json             4942541489d74912736e00ba89796574ecdc3d9b77f8a7cda19213e5d6f13794 complete=True n=1
+enum      enum_supports_phased_c30.json            aa341510b3eb3403bb66da84e5470fa88882dd468d5bef4732ddfc5d7d2184e1 complete=True n=1
+enum      enum_supports_phased_c31.json            d78e754df555cc7c02318a5e72373ae0d7a8880ce3bea1efa1dafd6dfb2848d7 complete=True n=1
+enum      enum_supports_phased_c32.json            778fcec2627f3609480d7fa074173bb9f3f8adb4b43a6519412934690f623d88 complete=True n=1
+enum      enum_supports_phased_c33.json            011a7ec8e36ffac68e37f41c5ede5b04faca11779d6eb459dd0305cc24e267b5 complete=True n=1
+enum      enum_supports_phased_c34.json            a5fa7fdbba9bd0fc8b9c3fce1572d90cc1691d566aaf660868f943fd4ba2f903 complete=True n=1
+enum      enum_supports_phased_c35.json            a5fa7fdbba9bd0fc8b9c3fce1572d90cc1691d566aaf660868f943fd4ba2f903 complete=True n=1
+enum      enum_supports_phased_c36.json            cee0790fedf355b11f21339071220da860341f0be5895d24f33df0440cb8c7df complete=True n=1
+enum      enum_supports_phased_c37.json            cee0790fedf355b11f21339071220da860341f0be5895d24f33df0440cb8c7df complete=True n=1
+enum      enum_supports_phased_c38.json            cee0790fedf355b11f21339071220da860341f0be5895d24f33df0440cb8c7df complete=True n=1
+enum      enum_supports_phased_c39.json            38a3bb6ecff7da2b5e7bf25b4b802b0c247a235381387c4fab1186afcf0fab7d complete=True n=1
+enum      enum_supports_phased_c4.json             0d718c4f76b4bd2e03e8344c31818a2f2c81b5ca20fa3690832290f3e9405906 complete=True n=96
+enum      enum_supports_phased_c40.json            38a3bb6ecff7da2b5e7bf25b4b802b0c247a235381387c4fab1186afcf0fab7d complete=True n=1
+enum      enum_supports_phased_c41.json            38a3bb6ecff7da2b5e7bf25b4b802b0c247a235381387c4fab1186afcf0fab7d complete=True n=1
+enum      enum_supports_phased_c42.json            8ca33f126fb5fe84cb275ae36be48ec17c90bee05adb86f122ec2af8bff64507 complete=True n=1
+enum      enum_supports_phased_c43.json            cacba18f52fbaab841b70a452f94256927c0cb3cfb039d97f961301bf3e22888 complete=False n=2
+enum      enum_supports_phased_c5.json             e5d3a733861ab3b93398152272f3281c97d520edaf61e5f57b944bd488064ead complete=True n=1
+enum      enum_supports_phased_c6.json             1bdc6c22d676bcaab474b2b912169ccd686a20d43038548c8c966d5aba44082d complete=True n=1
+enum      enum_supports_phased_c7.json             01b5d290188af423dec6b70392f7eeccf18372a56c0c7bfeeb5e461243f914fb complete=True n=1
+enum      enum_supports_phased_c8.json             2ee4f619e2280a40d4bb31cadc8d2e76d3c32cc32a89e43fd9472fe68ba49700 complete=True n=1
+enum      enum_supports_phased_c9.json             2ee4f619e2280a40d4bb31cadc8d2e76d3c32cc32a89e43fd9472fe68ba49700 complete=True n=1
+enum      enum_supports_sym_0.json                 4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_sym_13452.json             e5d3a733861ab3b93398152272f3281c97d520edaf61e5f57b944bd488064ead complete=True n=1
+enum      enum_supports_sym_16420.json             8631725bb9293ef0345bc0babca963e95eb6566251e2dbd595b757a001200135 complete=True n=2
+enum      enum_supports_sym_26896.json             4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_sym_28.json                8ca33f126fb5fe84cb275ae36be48ec17c90bee05adb86f122ec2af8bff64507 complete=True n=1
+enum      enum_supports_sym_28_tw.json             4e4fa86a626dd022ee6da91b9fb89a2ce3597d8229989cc391397a9f33176ed7 complete=False n=0
+enum      enum_supports_sym_29448.json             1bdc6c22d676bcaab474b2b912169ccd686a20d43038548c8c966d5aba44082d complete=True n=1
+enum      enum_supports_sym_8290.json              8d04d1d8d42a18cce2d0a92505a6fcc702dd81df8d1e675e76c41992c9121110 complete=True n=2
+enum      enum_supports_sym_9313.json              2b66aa43bfad2e1118e9cacb85af5b82bb6ae44ef70558b3c1a511c83411e31d complete=True n=2
+cubes     m00028_sL0                               ab25dd3c13c2d2da58f34cf008bd36dabbc63c0398aeb4ceb6016136d117ac5e UNSAT=325 SAT=0 other=0
+cubes     m04907_s0007                             e72ee839ac0bbe9041f1556949985c0baa54a6b308c20c26df88214aeb238ffb UNSAT=301 SAT=0 other=0
+cubes     m05033_s0012                             7b3abd2495ef5c2458af412aeb95a13b17f95676a373daff31e110b70ee1e525 UNSAT=291 SAT=0 other=0
+cubes     m06717_s0014                             c35ab3f6a97f48dd4307f81713a9f04a6bd5003c4630a1656e5a14d3ae69d0ca UNSAT=307 SAT=0 other=0
+cubes     m12295_s0015                             dc5b5e9f5f250c241426388b34e7e3a52485a1b3f8b65d8967494f14840ef032 UNSAT=302 SAT=0 other=0
+cubes     m16420_sL1                               c44e615ec814e6995f966a18dc18cb86082405f4af30529aa1b76d7d30acf3e7 UNSAT=324 SAT=0 other=1
+cubes     m20723_s0024                             16fdea2be7742f53a2f2a142b8d281f5d14be559e09c9c58674ec43e48ca871b UNSAT=306 SAT=0 other=0
+cubes     m21041_s0025                             cb778ff84344f281c0db66879ba467288f7efcb8b9998d2760c6cf5642eec3ce UNSAT=313 SAT=0 other=1
+cubes     m23221_s0027                             4573139ad4757b5e5a0cbd3b2e135b51ae7ee8a8a13dd0f1186a39be9101cd59 UNSAT=315 SAT=0 other=2
+cubes     m23431_s0028                             0f8e216652a655070a2391b5d0452bd53fbe33bd521800f6a093f8ba8fa7addf UNSAT=309 SAT=0 other=0
+cubes     m29481_s0032                             ba6d0f9451982d31e9521a26b33ee53f2069eb941cc01cecdb23b211793edd38 UNSAT=288 SAT=0 other=0
+cert      enum_c0                                  fa55d418cb3853f7a4baf09764b74ccb3d31b7a09ef74004ed5b515d7354d617 enum_c0 f791a54edc40d441 UNSAT VERIFIED
+cert      enum_c15                                 0d5be1340888e9ae3cfef9cd534038112df05efa91ec00fd2e76601d992a2cd0 enum_c15 6e4274b135ed5b96 UNSAT VERIFIED
+cert      enum_c25                                 2cc7a0becd3e4d1a2b7960116b939f44f15598469fd53d26dc44db2970a4acea enum_c25 4a955e8e9e58b6b9 UNSAT VERIFIED
+cert      enum_c30                                 f670d98009461659e2c7b97e468710b7ab7f3aeb9e29360c89f1b8fb80be160c enum_c30 c2e9662631bbf6cc UNSAT VERIFIED
+cert      enum_c32                                 762802bb0f5a7d29a9fbb85a676a153a3140c1b04c0143c2f0f871de5843018d enum_c32 4cfb3bd63aa6c23d UNSAT VERIFIED
+cert      enum_c4                                  fd5542aae3f1349d1d11afc2ccef389d6190730e855e27e7ad66391bcde7584b enum_c4 32d5e21000cfa5d5 UNSAT VERIFIED
+cert      enum_c42                                 b8dfa27f2156a0d19b852d706ca9ea7dc0591ecb8dd620a87807dfc17869ea21 enum_c42 b096ddbee272e204 UNSAT VERIFIED
+cert      m05033_s0009                             2c1bfd1adfce88d1a05b984f3c2af29bd655ec70b1742f99b26eff0977bdebc5 m05033_s0009 7f16e80a8715f2d9 UNSAT VERIFIED
+cert      m05033_s0010                             e329784946c177ed349179ebab95f920df3f19cf46276fe5568aef349583195d m05033_s0010 346414cb91ce1a4e UNSAT VERIFIED
+cert      m05033_s0011                             d87ac499e591a6c8251cd58ef05abfbf1bfe57032d2d6fafc7ecd967e20e3a45 m05033_s0011 f6aa884745448d03 UNSAT VERIFIED
+cert      m06717_s0013                             fc384209c45f61901aa071bfe1e86986c26ee01039690e281a744d190a8ab1a2 m06717_s0013 f25f8293e3f1ccf7 UNSAT VERIFIED
+cert      m16420_sL0_sym                           57a5fa52841b2b9110be8309f19e85c8b9af4146dd0a87238ed4c2e46352290e m16420_sL0_sym a706468daf92ee33 UNSAT VERIFIED
+cert      m16927_s0018                             7adf847c4e3a50d8dad5c913674d3cd75f722a8ea2fb4b2345a6805037b7f6ba m16927_s0018 9b55da3be28d8243 UNSAT VERIFIED
+cert      m16927_s0023                             35079e5ce13cbf2db5844f5068a71c38b7adf3051748fb8b494e5d593ff57ac4 m16927_s0023 840c005097ca6ad6 UNSAT VERIFIED
+cert      m29481_s0030                             ef4a09c03521582ab1ed22ad1c3ac2f366cdd158a83a35080858b2f1ac71fd3d m29481_s0030 3b82d7c62626ee1d UNSAT VERIFIED
+cert      m29481_s0031                             687f1f0715046007b9b80d64adaafebf05f26e7e4e8289889627733ef8459c5d m29481_s0031 1d8526ebc2b76259 UNSAT VERIFIED

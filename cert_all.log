@@ -1,0 +1,15 @@
+generated certs/m29481_s0030 3b82d7c62626ee1d 606084 4724117
+m29481_s0030 cadical=UNSAT solve=260s drat_trim=VERIFIED check=114s sha256(cnf)=3b82d7c62626ee1d
+generated certs/m29481_s0031 1d8526ebc2b76259 606084 4724117
+m29481_s0031 cadical=UNSAT solve=293s drat_trim=VERIFIED check=121s sha256(cnf)=1d8526ebc2b76259
+generated certs/m05033_s0009 7f16e80a8715f2d9 607364 4729501
+m05033_s0009 cadical=UNSAT solve=60s drat_trim=VERIFIED check=47s sha256(cnf)=7f16e80a8715f2d9
+generated certs/m05033_s0010 346414cb91ce1a4e 607415 4729652
+m05033_s0010 cadical=UNSAT solve=44s drat_trim=VERIFIED check=38s sha256(cnf)=346414cb91ce1a4e
+generated certs/m05033_s0011 f6aa884745448d03 607364 4729501
+m05033_s0011 cadical=UNSAT solve=37s drat_trim=VERIFIED check=38s sha256(cnf)=f6aa884745448d03
+generated certs/m06717_s0013 f25f8293e3f1ccf7 606116 4724349
+m06717_s0013 cadical=UNSAT solve=37s drat_trim=VERIFIED check=36s sha256(cnf)=f25f8293e3f1ccf7
+generated certs/m16927_s0018 9b55da3be28d8243 607774 4730911
+m16927_s0018 cadical=UNSAT solve=353s drat_trim=VERIFIED check=210s sha256(cnf)=9b55da3be28d8243
+ALL_DONE

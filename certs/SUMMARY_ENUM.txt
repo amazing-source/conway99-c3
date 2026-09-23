@@ -1,0 +1,7 @@
+enum_c15 cadical=UNSAT solve=272s proof=30M drat_trim=VERIFIED check=224s sha256(cnf)=6e4274b135ed5b96
+enum_c0 cadical=UNSAT solve=202s proof=27M drat_trim=VERIFIED check=174s sha256(cnf)=f791a54edc40d441
+enum_c42 cadical=UNSAT solve=863s proof=76M drat_trim=VERIFIED check=611s sha256(cnf)=b096ddbee272e204
+enum_c25 cadical=UNSAT solve=1179s proof=84M drat_trim=VERIFIED check=330s sha256(cnf)=4a955e8e9e58b6b9
+enum_c32 cadical=UNSAT solve=180s proof=61M drat_trim=VERIFIED check=79s sha256(cnf)=4cfb3bd63aa6c23d
+enum_c30 cadical=UNSAT solve=140s proof=45M drat_trim=VERIFIED check=67s sha256(cnf)=c2e9662631bbf6cc
+enum_c4 cadical=UNSAT solve=120s proof=23M drat_trim=VERIFIED check=38s sha256(cnf)=32d5e21000cfa5d5

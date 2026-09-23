@@ -1,0 +1,3 @@
+mask 28: |Aut F| = 12, lex-leader constraints: 11
+mask 28: canonical support multiset #1 found (116s)
+mask 28: END status=INFEASIBLE, canonical multisets: 1, complete=True, 135s

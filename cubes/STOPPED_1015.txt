@@ -1,0 +1,8 @@
+cubeI3 -> m23221_s0027
+cubeI5 -> m12295_s0015
+cubeI6 -> m04907_s0007
+cubeI7 -> m05033_s0012
+cubeS1 -> m20723_s0024
+cubeS2 -> m21041_s0025
+cubeS4 -> m23431_s0028
+cubeS8 -> m06717_s0014

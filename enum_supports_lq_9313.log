@@ -1,0 +1,3 @@
+mask 9313: support multiset #1 found (173s)
+mask 9313: support multiset #2 found (427s)
+mask 9313: END status=INFEASIBLE, support multisets passing LQ: 2, complete=True, 444s

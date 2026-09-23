@@ -1,0 +1,13 @@
+(1) tot_equals exhaustive: 5116 assignments tested, 0 wrong
+(2) BvLS 81 T planted, 6 free rows: [('old', True, True, 802155), ('lean', True, True, 473394)] -> ok
+(2) BvLS 81 T corrupted: [('old', False, None, 802489), ('lean', False, None, 474500)] -> ok
+(2) BvLS 81 I planted, 6 free rows: [('old', True, True, 5288200), ('lean', True, True, 1456789)] -> ok
+(2) BvLS 81 I corrupted: [('old', False, None, 5299160), ('lean', False, None, 1461978)] -> ok
+(3) rook T k=4 lean: True numeric=True -> ok
+(3) rook T k=5 lean: False numeric=None -> ok
+(3) rook I k=4 lean: True numeric=True -> ok
+(3) rook I k=5 lean: False numeric=None -> ok
+(4) m05033_s0009: clauses old 4727236 / lean 1117843 ; lean result UNSAT (2.8s) evaluate_ok=None -> ok
+(4) m29481_s0030: clauses old 4721852 / lean 1122170 ; lean result UNSAT (8.0s) evaluate_ok=None -> ok
+(4) m23221_s0027 relaxed: clauses old 511920 / lean 236649 ; lean result SAT (6.7s) evaluate_ok=True -> ok
+LEAN ENCODING VALIDATION: PASS

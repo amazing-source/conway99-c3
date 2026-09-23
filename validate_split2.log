@@ -1,0 +1,7 @@
+m23221_s0027: Z=6, cubes 60, to do 60, base loaded in 8s
+m23221_s0027: pass 1 -> 26 undecided (8s)
+m23221_s0027: pass 10 -> 11 undecided (9s)
+m23221_s0027: pass split -> 0 undecided (248s)
+m23221_s0027 Z=6: cubes 60 -> UNSAT 50, SAT 7, other 3 => SAT (248s)
+split validation: 60 cubes, agree 57, disagree 0, unknown 3, decided through the split pass 11, sub-cube nodes logged 2819
+SPLIT VALIDATION: PASS

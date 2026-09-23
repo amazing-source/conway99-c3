@@ -1,0 +1,1 @@
+m16420_sL0_sym cadical=UNSAT solve=3515s proof=129M drat_trim=VERIFIED check=2852s sha256(cnf)=a706468daf92ee33

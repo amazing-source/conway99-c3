@@ -1,0 +1,3 @@
+relaxed m23221_s0027, Z=6, 325 cubes: agree 325 (SAT 29, UNSAT 296), disagree 0 | solve time incremental 103.3s, fresh 300.3s
+m16420_sL1, 4 real cubes: agree 4 (UNSAT 4), disagree 0 | solve time incremental 0.0s, fresh 0.0s
+INCREMENTAL VALIDATION: PASS

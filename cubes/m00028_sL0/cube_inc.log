@@ -1,0 +1,3 @@
+m00028_sL0: Z=21, cubes 325, to do 27, base loaded in 11s
+m00028_sL0: pass split -> 0 undecided (1161s)
+m00028_sL0 Z=21: cubes 325 -> UNSAT 325, SAT 0, other 0 => UNSAT (all 325 cubes) (1161s)

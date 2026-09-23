@@ -1,0 +1,3 @@
+mask 8290: support multiset #1 found (106s)
+mask 8290: support multiset #2 found (177s)
+mask 8290: END status=INFEASIBLE, support multisets passing LQ: 2, complete=True, 194s

@@ -1,0 +1,2 @@
+mask 28: support multiset #1 found (56s)
+mask 28: END status=INFEASIBLE, support multisets passing LQ: 1, complete=True, 59s

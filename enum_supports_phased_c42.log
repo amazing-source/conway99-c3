@@ -1,0 +1,2 @@
+class 42 (mask 28): multiset #1 found (149s)
+class 42 (mask 28): END status=INFEASIBLE, LQ+phase multisets: 1, complete=True, 162s
