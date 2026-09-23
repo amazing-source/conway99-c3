@@ -3,15 +3,22 @@
 \emph{Travail autonome (l'opérateur dormait). Même échelle de statut. Détail horodaté : \code{NUIT\_JOURNAL.md}.}
 
 \subsection{Recherche bibliographique ciblée}
+\paragraph{Dépendances externes (mise au point du 23 septembre).} Les dépôts GitHub cités ci-dessous (\code{ibenarb}, \code{Lundle22},
+\code{infinityscroll}) sont des travaux publiés par des particuliers, non relus par des pairs, et encore modifiés (commits récents) : ils ne sont
+cités que pour le contexte, dans l'état où ils ont été lus les 22 et 23 septembre, et \textbf{aucun résultat de ce document n'en dépend}.
+Les seules idées reprises (pas de 4-cycle de doubles, « lemme B ») sont redémontrées ici à partir des équations (§\ref{sec:nuit}, piste
+« impliqués par l'étage Q ») ; les exclusions LQ tiennent même sans elles ; l'idée de budget (LQB) n'a rien exclu ; le critère de Lundle22
+n'est utilisé nulle part. Les chiffres attribués à ces dépôts ci-dessous sont les leurs, non vérifiés. Les entrées extérieures qui portent
+réellement le raisonnement sont : l'absence de point fixe (Makhnev--Minakova 2004 ; Behbahani--Lam 2011, articles de revues) et $\tau=6$,
+désormais démontré de façon autonome (§\ref{sec:tau}, preuve ajoutée), sans recours à la prépublication d'Ishida.
 \begin{itemize}[nosep]
-\item \st{L} \code{ibenarb/conway99-research} (dépôt actif, lu le 23/09) : même quotient $Q=2D_T+S+2L$ ; démontre $\tau\equiv0\pmod3$ par un comptage
-élégant (les $231$ triangles du graphe ; les triangles fixés par $g$ sont exactement les $\tau$ orbites triangulaires) ; exclut les 4-cycles du 2-facteur $L$
-et démontre le « lemme B » (une composante triangulaire $\{a,b,c\}$ de $L$ reçoit exactement une arête simple de chaque autre orbite).
-Découpage par type de cycles de $L$ : 103 types « ouverts » de leur point de vue ; avec Ishida ($\tau=6$), leurs 2 types $\tau=27$ sont vides.
-Coût mesuré de leur méthode : l'exclusion d'\emph{un} type, $(6,3^7)$, a demandé 656 sous-cas et 652\,Go de preuves LRAT.
-\item \st{L} \code{Lundle22/conway-99-cyclic-lifts} : sous l'équation du quotient, l'équation complète équivaut à la congruence $W^2+W-12I\equiv0\pmod{\pi^3}$
-($\pi=1-\omega$) sur la matrice d'Eisenstein, soit une équation linéaire et une quadratique sur $\F_3$ (lemme clé revérifié : trois entiers $\ge0$ de somme 6
-avec $\pi^3\mid c_0+c_1\omega+c_2\omega^2$ valent tous 2). Utile pour l'étage des phases.
+\item Contexte, non vérifié, non utilisé : \code{ibenarb/conway99-research} (dépôt actif, lu le 23/09) : même quotient $Q=2D_T+S+2L$ ;
+y sont annoncés $\tau\equiv0\pmod3$ par un comptage de triangles, l'exclusion des 4-cycles du 2-facteur $L$ et un « lemme B » (une composante
+triangulaire $\{a,b,c\}$ de $L$ reçoit exactement une arête simple de chaque autre orbite) ; découpage par type de cycles de $L$ (103 types
+« ouverts » selon eux) ; coût annoncé pour l'exclusion d'\emph{un} type, $(6,3^7)$ : 656 sous-cas et 652\,Go de preuves LRAT.
+\item Contexte, non vérifié, non utilisé : \code{Lundle22/conway-99-cyclic-lifts} : sous l'équation du quotient, l'équation complète équivaudrait
+à la congruence $W^2+W-12I\equiv0\pmod{\pi^3}$ ($\pi=1-\omega$) sur la matrice d'Eisenstein (le lemme arithmétique clé a été revérifié : trois
+entiers $\ge0$ de somme 6 avec $\pi^3\mid c_0+c_1\omega+c_2\omega^2$ valent tous 2).
 \item \st{L} Thakkar--Severini (arXiv:2608.11211) : modèle d'orbites générique ; ordre 3 sans point fixe indécis en 30\,min. SAT Modulo Symmetries :
 non adapté (pas de multigraphe ni de partition imposée). « Smart cubing » : gains $\times2$--$3$.
 \end{itemize}

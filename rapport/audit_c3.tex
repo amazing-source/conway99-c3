@@ -37,7 +37,7 @@
 \begin{abstract}
 On étudie l'hypothèse qu'un graphe fortement régulier $\Gamma=\srg(99,14,1,2)$ admette un automorphisme $g$ d'ordre $3$.
 La littérature impose que $g$ soit sans point fixe. Ce document rassemble, avec leur statut exact, tous les résultats obtenus le 22 septembre 2026 :
-(i) $g$ a exactement six orbites triangulaires (conséquence d'une identité d'Ishida, argument refait) ;
+(i) $g$ a exactement six orbites triangulaires (identité d'Ishida ; preuve autonome ajoutée au §\ref{sec:tau}) ;
 (ii) le graphe $F$ des adjacences entre ces six orbites est l'un de \textbf{26} graphes (classification certifiée par certificats exacts) ;
 (iii) au niveau des appariements (« phases »), il reste \textbf{46} classes à symétrie près (certifié) ;
 (iv) pour 35 de ces classes, le problème restant se ramène à une liste finie et explicite de problèmes « quotient », 33 au total (énumération par solveur, non certifiée) ;
@@ -117,7 +117,7 @@ $M^2+M=12I$, spectre $\{3^{18},(-4)^{15}\}$ (analogue de la matrice signée $S$ 
 
 %==================================================================
 \section{Résultat 1 : exactement six orbites triangulaires}\label{sec:tau}
-\begin{proposition} \st{L}+\st{D}
+\begin{proposition} \st{D}
 $\tau=6$ : $g$ a six orbites triangulaires et 27 orbites indépendantes.
 \end{proposition}
 \begin{proof}
@@ -131,6 +131,13 @@ $\chi_3(g)=0$ et $\tau=6$.
 Nous avons relu l'argument d'Ishida : l'image de $E$ est un facteur direct du réseau de permutation $\Z_3^{V}$, donc (théorème de Green + Krull--Schmidt sur
 $\Z_3$) une somme de réseaux $\Z_3[G/H]$ ; la trace de $x$ compte les facteurs triviaux, que le quotient de Brauer, égal à $E[\Fix(x)]\bmod 3$, compte aussi.
 Contrôle de cohérence (calcul à la main) sur un vrai graphe : $\srg(243,22,1,2)$ avec l'involution $x\mapsto-x$ ($p=2$, un point fixe) : trace et rang valent $0$.
+
+\emph{Preuve autonome (ajoutée le 23 septembre ; elle ne dépend pas de la prépublication d'Ishida).} Soit $R=\Z_3$ (entiers $3$-adiques) et
+$G=\langle g\rangle\cong C_3$. Comme $g$ est sans point fixe, $G$ agit librement sur les 99 sommets et $L=R^V$ est un $R[G]$-module libre (de rang 33).
+$E_3$ est à coefficients dans $\Z_{(3)}\subset R$ et commute avec $g$ ; c'est donc un idempotent de $\operatorname{End}_{R[G]}(L)$, et $M=E_3L$ est facteur direct
+de $L$, donc un $R[G]$-module projectif. L'anneau $R[G]=\Z_3[x]/(x^3-1)$ est local (sa réduction $\F_3[x]/(x-1)^3$ l'est), donc tout module projectif
+de type fini y est libre : $M\cong R[G]^k$. Sur $R[G]$, $g$ permute la base $\{1,x,x^2\}$ sans point fixe ; sa trace est nulle, donc
+$\chi_3(g)=\tr(gE_3)=\tr(g_{|M})=0$ et $\tau=6$. (Au passage $3k=54$, soit $k=18$.)
 \end{proof}
 \begin{remark}
 Le résultat est dû à Ishida (juillet 2026). Il rend redondante l'exclusion calculée du cas « $f=27$ » par \code{infinityscroll/conway99-order3-f27}
@@ -315,7 +322,7 @@ peut-être des résultats équivalents (classification des graphes $F$, réducti
 \item Lemme~\ref{lem:entries} et la forme de $Q$ (15 min).
 \item Lemmes~\ref{lem:type} et~\ref{lem:triple} : \emph{les exclusions en dépendent} (20 min).
 \item Lemme~\ref{lem:lex} (cassage de symétrie) : les UNSAT en dépendent (20 min).
-\item Argument $\tau=6$ (Ishida) (15 min) et le modèle de phases (§\ref{sec:phases}) (20 min).
+\item Preuve autonome de $\tau=6$ (§\ref{sec:tau}, modules projectifs sur $\Z_3[C_3]$) (10 min) et le modèle de phases (§\ref{sec:phases}) (20 min).
 \item Rejouer \code{check\_all.py} et \code{audit\_verify.py} (bibliothèque standard + networkx ; quelques minutes).
 \end{enumerate}
 \subsection*{Calculs}
