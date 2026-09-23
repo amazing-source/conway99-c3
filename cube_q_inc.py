@@ -17,14 +17,21 @@ if __name__ == "__main__":
     Z = min(range(6, 33), key=lambda z: (lq_candidates(inst, z), z)) if zarg == "auto" else int(zarg)
     d = "cubes/%s%s" % (name, "_relaxed" if relaxed else ""); os.makedirs(d, exist_ok=True)
     from_split = from_split or os.path.exists(d + "/FROM_SPLIT")          # marker: remaining cubes already failed passes 1-2
-    if not os.path.exists(d + "/base.gen.json"):
+    if not os.path.exists(d + "/base.cnf"):              # fresh clone: base.cnf is not in git; regenerate it and check its SHA-256
+        import hashlib
         QM, cls, pool, syms = SQ.full_cnf(inst, relaxed)
         nv = max(abs(l) for c in cls for l in c)
-        with open(d + "/base.cnf", "w") as f:
+        with open(d + "/base.cnf", "w", newline="\n") as f:
             f.write("p cnf %d %d\n" % (nv, len(cls)))
             for c in cls: f.write(" ".join(map(str, c)) + " 0\n")
+        sha = hashlib.sha256(open(d + "/base.cnf", "rb").read()).hexdigest()
         vm = {"%s,%d,%d" % k: v for k, v in pool.obj2id.items() if isinstance(k, tuple) and len(k) == 3 and k[0] in ("u", "w")}
-        json.dump({"name": name, "vars": nv, "clauses": len(cls), "symmetries": len(syms), "varmap": vm}, open(d + "/base.gen.json", "w"))
+        if os.path.exists(d + "/base.gen.json"):
+            old = json.load(open(d + "/base.gen.json"))
+            if old.get("cnf_sha256") and old["cnf_sha256"] != sha:
+                sys.exit("REGENERATED CNF DIFFERS from the recorded one (%s != %s): stop, results.txt refers to another CNF" % (sha[:16], old["cnf_sha256"][:16]))
+            if old["varmap"] != vm: sys.exit("REGENERATED VARIABLE MAP DIFFERS: stop")
+        json.dump({"name": name, "vars": nv, "clauses": len(cls), "symmetries": len(syms), "varmap": vm, "cnf_sha256": sha}, open(d + "/base.gen.json", "w"))
         del QM, cls, pool; gc.collect()
     vm = json.load(open(d + "/base.gen.json"))["varmap"]
     wv = lambda a, b: vm["w,%d,%d" % (min(a, b), max(a, b))]
